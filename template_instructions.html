@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jigoshop Documentation</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+  <link rel="stylesheet" href="css/responsive.css" media="screen">
+  <link rel="stylesheet" href="css/style.css" media="screen">
+  <link rel="stylesheet" href="css/flexslider.css"  media="screen">
+  <link rel="stylesheet" href="css/prettify.css"  media="screen">
+   <link rel="stylesheet" href="css/prettyPhoto.css"  media="screen">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.scrollTo.js"></script>
+  <script src="js/jquery-migrate-1.1.0.js"></script>
+  <script src="js/prettify.js"></script>
+  <script src="js/jquery.flexslider.js"></script>
+  <script src="js/bootstrap-affix.js"></script>
+  <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
+  <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+  
+  <script>    
+    $(document).ready(function() {	
+  		$('.flexslider').flexslider({
+  		  animation: "fade",      
+  		  slideshow: false,     
+  		  slideshowSpeed: 7000,
+  		  animationDuration: 0,
+  		  prevText: "",
+  		  nextText: "",
+  		  controlNav: true,
+  		}) 		
+
+
+
+// hide #back-top first
+  $("#back-top").hide();
+  
+  // fade in #back-top
+  $(function () {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        $('#back-top').fadeIn();
+      } else {
+        $('#back-top').fadeOut();
+      }
+    });
+
+    // scroll body to 0px on click
+    $('#back-top a').click(function () {
+      $('body,html').animate({
+        scrollTop: 0
+      }, 400);
+      return false;
+    });
+  });	
+			
+
+// prettyphoto init
+        $("a[data-gal^='prettyPhoto']").prettyPhoto({
+          animationSpeed:'slow',
+          theme:'facebook',
+          slideshow:false,
+          autoplay_slideshow: false,
+          show_title: true,
+          overlay_gallery: false
+        }).append('<span></span>').hover(
+          function(){
+            $(this).find('>img').stop().animate({opacity:.5})
+          },
+          function(){
+            $(this).find('>img').stop().animate({opacity:1})
+          }
+        );		
+
+// slide-down-box-------------------------------  
+      var idArray = [],
+          click_scroll = false;
+      $("#nav a").each(function(index){
+        idArray[index]=$(this).attr("href");
+      });
+      
+      $('ul.list li a').prepend('<i class="icon-sample"></i>');
+      $('li:first-child', "#nav").addClass('first');
+      $('li:last-child', "#nav").addClass('last');
+
+      $("#affect_all").toggle(
+        function(){
+          $("#nav>li").not(".act_item").addClass("open_item").find("dd").stop(true).slideDown(200);
+          $(this).find('.expand').hide();
+          $(this).find('.close').show();
+        },
+        function(){
+          $("#nav>li").not(".act_item").removeClass("open_item").find("dd").stop(true).slideUp(200);
+          $(this).find('.expand').show();
+          $(this).find('.close').hide();
+        }
+      );
+      $(".slide-down dt i").click(function(){
+        $(this).parents("li").toggleClass("open_item").find('dd').slideToggle(300);
+        return false;
+      });
+      $(".slide-down a").click(function(){
+        click_scroll = true;
+        $(window).scrollTo($(this).attr("href"), 800, function(){
+          click_scroll = false;
+          change_menu_item();
+        });
+        return false;
+      });
+      $(window).scroll(change_menu_item).trigger("scroll");
+      function change_menu_item(){
+        if(!click_scroll){
+          $(".current").removeClass("current");
+          $(".act_item").removeClass("act_item");
+          $(".open_item").removeClass("open_item");
+          for(var i=0, lenghtArray = idArray.length; i<lenghtArray; i++){
+            if($(idArray[i]).offset().top-$(window).scrollTop()<=(($(window).height()/2)-100) && $(idArray[i]).offset().top-$(window).scrollTop()>=0 || $(window).scrollTop()+(($(window).height()/2)-100)>$(idArray[i]).offset().top && $(idArray[i]).offset().top+$(idArray[i]).height()>$(window).scrollTop()+(($(window).height()/2))){
+              $("a[href="+idArray[i]+"]").parent("li").addClass("current");
+              $("a[href="+idArray[i]+"]").parents("li").addClass("act_item open_item");
+            }
+          }
+          $(".act_item").find("dd").slideDown(200);
+          $("li", '#nav').not(".act_item").find("dd").stop().slideUp(200);
+        }
+      }
+    })  
+    !function ($) {
+      $(function(){	
+        var $window = $(window)		
+        // make code pretty
+        window.prettyPrint && prettyPrint()
+        // side bar
+        $('#nav_container').affix({
+          offset: {
+            top: 80		
+          }
+        })
+      })
+    }(window.jQuery)  
+  </script>    
+
+    <!--[if lt IE 8]>
+  		<div style='text-align:center'>
+        <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+      </div>  
+ 	  <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>  
+
+<!-- header
+================================================== -->
+<header class="header">
+  <div class="container">
+  <div class="row">
+  <article class="span4"><a class="brand" href="http://templatemonster.com" target="_blank"></a></article>
+ <article class="span8">
+ <h1><img class="img-logo" alt="" src="img/jigoshop_logo.png">Jigoshop Template Documentation</h1>
+  </article>   
+  </div>  	
+  </div>
+</header>
+<div id="content"> 
+<div class="bg-content-top">
+<div class="container">
+
+<!-- Docs nav
+    ================================================== -->
+  <div class="row">
+      <div class="span3"> 
+
+        <div id="nav_container">
+          <a href="javascript:;" id="affect_all">
+            <span class="expand">
+              <i class="icon-angle-down"></i>
+            </span>            
+            <span class="close">
+              <i class="icon-angle-up"></i>
+            </span>
+          </a>
+            <div class="row-fluid"></div>    
+                <ul class="nav nav-list bs-docs-sidenav"  id="nav">
+                  <li class="nav-item item1">
+                    <dl class="slide-down">
+                       <dt><a href="#introduction" class="icon-info-sign">Introduction</a></dt>
+                       <dd></dd>
+                     </dl>   
+                  </li>
+                  <li class="nav-item item2">
+                    <dl class="slide-down">
+                       <dt><a href="#prepare" class="icon-check">Prepare </a></dt>  
+                       <dd></dd>                       
+                     </dl> 
+                  </li>
+                  <li class="nav-item item3">
+                    <dl class="slide-down">
+                       <dt><a href="#getting_started" class="icon-play">Getting Started </a> <i class="icon-sample"></i></dt>
+                         <dd>
+                           <ul class="list">          
+                            <li><a href="#engine-installation">Engine installation</a></li>
+                            <li><a href="#plugins_intstall">Plugins installation</a></li>
+                            <li><a href="#theme-installation">Theme installation</a></li>
+                            <li><a href="#theme-act">Theme activation</a></li>
+                            <li><a href="#theme-sql">SQL dump file installation</a></li>
+                            <li><a href="#theme-links">Permalinks settings</a></li>
+                            <li><a href="#theme-menu-setup">Menu setup</a></li>
+                           </ul> 
+                       </dd>
+                     </dl> 
+                  </li>             
+                  <li class="nav-item item4">
+                    <dl class="slide-down">
+                      <dt><a href="#page_templates_sidebars" class="icon-file-alt">Page Templates and Sidebars</a></dt>
+                      <dd></dd>
+                     </dl> 
+                  </li>
+                  <li class="nav-item item5">
+                    <dl class="slide-down">
+                      <dt><a href="#posts_categories" class="icon-edit">Posts, Cat. and Post Formats</a><i class="icon-sample"></i></dt>
+                      <dd>
+                        <ul class="list">
+                          <li><a href="#adding-category">Adding category</a></li>
+                          <li><a href="#blog_post">Creating a Blog post</a></li>
+                          <li><a href="#product_post">Creating a Product post</a></li>
+                          <li><a href="#slider_post">Creating a Slider post</a></li>
+                          <li><a href="#testimonial_post">Adding a Testimonials post</a></li>
+                          <li><a href="#faq_post">Adding an FAQs post</a></li>
+                          <li><a href="#team_post">Adding an Our Team post</a></li>
+                          <li><a href="#services_post">Adding a Service post</a></li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </li>                 
+                  <li class="nav-item item6">
+                    <dl class="slide-down">
+                      <dt><a href="#shortcodes" class="icon-file">Shortcodes</a></dt>
+                    </dl> 
+                  </li>   
+                  <li class="nav-item item7">
+                    <dl class="slide-down">
+                      <dt><a href="#widgets" class="icon-magnet">Custom Widgets</a></dt>
+                     </dl> 
+                  </li>
+                  <li class="nav-item item8">
+                    <dl class="slide-down">
+                      <dt><a href="#theme_options" class="icon-cogs">Theme Options</a><i class="icon-sample"></i></dt>
+                      <dd>
+                         <ul class="list">          
+                          <li><a href="#general_option">General</a></li>
+                          <li><a href="#logo_option">Logo &amp; Favicon</a></li>    
+                          <li><a href="#navigation_option">Navigation</a></li>    
+                          <li><a href="#slider_option">Slider</a></li>    
+                          <li><a href="#blog_option">Blog</a></li>    
+                          <li><a href="#footer_option">Footer</a></li>                  
+                         </ul> 
+                      </dd>
+                     </dl> 
+                  </li>
+                </ul>
+            </div>
+      </div> 
+
+      
+<div class="span9">
+
+<!-- box-content
+================================================== -->
+<div class="box-content">
+
+<!-- block-started
+  ================================================== -->
+  <section class="block-started"  id="introduction">
+    <h2><i class="icon-info-sign"></i> Introduction</h2>
+    <p>Thank you for purchasing JigoShop template. This documentation consists of several parts and shows you the entire process of setting up and administering JigoShop Website from scratch.</p>
+    <p>JigoShop template is based on WordPress CMS.</p>
+    
+    <div id="wordpress_cms_desc">
+      <h4>What is WordPress CMS?</h4>
+      <p>WordPress is a free and open source blogging tool and a content management system (CMS) based on PHP and MySQL. It enables you to build Websites and powerful on-line applications and requires almost no technical skills or knowledge to manage. Many aspects, including its ease-of-use and extensibility, have made WordPress the most popular Web site software available. <a href="http://wordpress.org/about/" target="_blank">Learn More</a></p>
+    </div>
+
+    <div id="JigoShop_template_desc">
+      <h4>What is a JigoShop template</h4>
+      <p>JigoShop template is a skin for website built with WordPress CMS platform. In other words you can easily change your JigoShop Web site appearance installing new template in a few easy steps. With all it's simplicity JigoShop template is provided with all necessary source files and you are free to edit or extend it the way you need.</p>
+    </div>
+
+    <div id="file_structure">
+      <h4>Files structure</h4>
+      <p>The template package you have downloaded consists of several folders. Let's see what each folder contains :</p>
+      <ul class="files_structure">
+        <li class="folder"><i class="icon-folder-close"></i> <b>Documentation</b><small class="muted"> - contains documentation files</small>
+          <ul>
+            <li class="file"><i class="icon-file"></i> Documentation (Installation and Editing).html<small class="muted"> - main documentation file. You are right here :)</small></li>
+          </ul>
+        </li>
+        <li class="folder"><b>Screenshots</b><small class="muted"> - contains template screenshots. Not for production</small></li>
+        <li class="folder"><b>Sources</b><small class="muted"> - contains template source files</small>
+          <ul>
+            <li class="folder"><i class="icon-folder-close"></i> plugin<small class="muted"> - template plugins files (.zip)</small></li>
+            <li class="folder"><i class="icon-folder-close"></i> psd<small class="muted"> - template Adobe Photoshop source files (.psd)</small></li>
+            <li class="folder"><i class="icon-folder-close"></i> uploads<small class="muted"> - contains theme images</small></li>
+          </ul>
+        </li>
+        <li class="file"><i class="icon-file"></i> theme####.zip<small class="muted"> - theme(child-theme) archive. Contains all theme files. Should be installed through JigoShop extension manager</small></li>
+        <li class="file"><i class="icon-file"></i> fonts_info.txt<small class="muted"> - contains links where the template custom fonts can be downloaded</small></li>
+        <li class="file"><i class="icon-file"></i> info.txt<small class="muted"> - contains instructions on how to extract source files</small></li>
+      </ul>
+    </div>
+  </section>
+  
+<!-- prepare started --> 
+  <section class="block-templates" id="prepare">  
+    <h2><i class="icon-check"></i> Prepare</h2>
+    <p>Before you proceed to setting up your JigoShop Web site please make sure you are fully prepared. Please complete the following preparation steps:</p>
+
+    <div id="software">
+      <h4>Editing software</h4>
+      <p>To feel comfortable working with JigoShop template we recommend you to download all applications required. You can see the list of required software at the template preview page. <br>Requirements may vary depending on the template, we're going to tell you in general what’s needed:</p>
+
+      <ol>
+        <li>First of all you need the right applications to extract the password protected sources_########.zip archive. You can use WinZip 9+ (Windows) and Stuffit Expander 10+ (Mac).</li>
+        <li>You may also need Adobe Photoshop application. It’s used to edit .PSD source files and it’s necessary if you want to edit template design graphics and images.</li>
+        <li>To edit template source code files you need some code editor like Adobe Dreamweaver, Notepad++, Sublime Text etc.</li>
+        <li>To upload files to the hosting server you may need an FTP Manager like Total Commander, FileZilla, CuteFTP etc.</li>
+      </ol>
+    </div>
+
+    <div id="hosting">
+      <h4>Hosting</h4>
+      <p>As WordPress CMS is a PHP/MySQL based application, you need to prepare a hosting environment to run WordPress.</p>
+      <p>If you have a live hosting please make sure it matches <a href="http://WordPress.org/about/requirements/" target="_blank">WordPress software requirements</a> and is ready to be used for WordPress websites.</p>
+      <p>Otherwise you can run WordPress locally on your computer using the local server. To create a local hosting server please use the localhost applications as <b>WAMP</b>, <b>AppServ</b>, <b>MAMP</b> etc. Any of those can be easily installed as any other program and used to run JigoShop. </p>
+      <p>Please check the tutorials below on how to configure local development environment:</p>
+      <ul class="unstyled">
+        <li><i class="icon-film"> </i><a href="http://templatemonster.com/help/how-to-install-appserv-web-development-environment.html">How to install AppServ web development environment</a></li>
+        <li><i class="icon-film"> </i><a href="http://templatemonster.com/help/how-to-install-wamp-web-development-environment.html">How to install WAMP web development environment</a></li>
+        <li><i class="icon-film"> </i><a href="http://templatemonster.com/help/how-to-install-xamp-web-development-environment.html">How to install XAMP web development environment</a></li>
+      </ul>
+    </div>
+  </section>
+<!-- prepare started --> 
+
+<!-- Getting started --> 
+  <section class="block-templates" id="getting_started">  
+    <h2><i class="icon-play"></i> Getting Started</h2>
+      <!-- Engine installation -->
+    <article id="engine-installation">
+      <h4>Engine installation</h4>
+      <div class="box-info">
+        <span>
+          Download correct WordPress engine version. At the template preview page, in the requirements section you can see the required WordPress version. Please make sure you are downloading the correct one.
+        </span>
+      </div>
+      <ol>
+        <li>The WordPress engine could be downloaded from the official website at WordPress.org <a href="http://WordPress.org/download/" target="_blank"><strong>Download WordPress</strong></a>. In case you need earlier release you can click the Release <a href="http://WordPress.org/download/release-archive/" target="_blank"><strong>Release Archive</strong></a> link.
+        </li>
+        <li>When you are done with the downloading you need to extract the files from the engine and template packages. To extract the files from the WordPress engine <strong>ZIP</strong> package you can use any archive manager that can handle ZIP archives.
+          <p>The following tutorials will show you how to extract files on <a href="http://www.templatemonster.com/help/unzipping-your-template.html" target="_blank"><strong>Windows(WinZip)</strong></a> and <a href="http://www.templatemonster.com/help/how-unzip-template-mac.html" target="_blank"><strong>MAC(StuffitExpander)</strong></a>.</p>
+          <ul class="list-2">
+            <li><i class="icon-info-sign"></i> <a href="http://www.templatemonster.com/help/extract-archived-files-mac-os.html" target="_blank">Extract archived files (MAC OS)</a></li>
+            <li><i class="icon-info-sign"></i> <a href="http://www.templatemonster.com/help/extract-archived-files-windows-os.html" target="_blank">Extract archived files (Windows OS)</a></li>
+            <li><i class="icon-info-sign"></i> <a href="http://www.templatemonster.com/help/downloading-and-installing-winzip.html" target="_blank">Downloading and Installing WinZip</a></li>
+            <li><i class="icon-info-sign"></i> <a href="http://www.templatemonster.com/help/how-unzip-template-mac.html" target="_blank">How to unzip a template (MAC OS)</a></li>
+            <li><i class="icon-info-sign"></i> <a href="http://www.templatemonster.com/help/unzipping-your-template.html" target="_blank">How to unzip a template (Windows OS)</a></li>
+          </ul>
+        </li>
+        <li>After extracting the files you need to upload the WordPress engine files and folders to your hosting server.
+          <p>All these files and folders should be uploaded to your hosting server. The engine files should be uploaded to the <strong>PUBLIC_HTML</strong> or <strong>WWW </strong>directory on your server.</p>
+
+          <div class="box-info"><span>If you don’t see PUBLIC_HTML or WWW directories on your hosting server please contact your hosting and specify where to upload the website files.</span></div>
+
+          <p>Please check the following tutorials on how to upload files to server:</p>
+          <ul class="list-2">
+            <li><i class="icon-info-sign"></i> <a href="http://www.templatemonster.com/help/how-upload-files-server-2.html" target="blank">How to upload files to server</a>
+            <li><i class="icon-info-sign"></i> <a href="http://www.templatemonster.com/help/how-to-upload-files-to-a-server-using-cpanel-webhost-manager-whm.html" target="blank">How to upload files to a server using cPanel (WebHost Manager, WHM)</a> </li>
+          </ul>
+        </li>
+        <li>At this step you need to create a database which will be used by your WordPress engine.
+
+          <p>You can create new database using database management tool from your hosting control panel (<i>usually PhpMyAdmin</i>).</p>
+
+          <p>With phpMyAdmin tool you will be able to create new database in 3 simple steps: (check the slides below)</p>
+
+          <ol class="list">
+            <li>Click Database button from the top navigation menu to access the database listing</li>
+            <li>Input database name into the "Create new database" field </li>
+            <li>Click Create button on the right side</li>
+          </ol>
+
+          <p>Your database can be seen in the database listing. Click on it's name to get access to the database</p>
+
+          <div class="flexslider clearfix img-polaroid">
+            <ul class="slides">
+              <li>
+                <img src="img/database-create-1.jpg" alt="" />
+                <div class="flex-caption">
+                  <p>1. Click Database button to access to the database listing</p>
+                </div>
+              </li>                   
+              <li>
+                <img src="img/database-create-2.jpg" alt="" />
+                <div class="flex-caption">
+                  <p>2. Input database name <br>
+                  3. Click Create button</p>
+                </div>
+              </li>
+              <li>
+                <img src="img/database-create-3.jpg" alt="" />
+                <div class="flex-caption">
+                  <p>4. Your database can be seen in the database listing. Click on it's name to get access to the database.</p>
+                </div>
+              </li> 
+            </ul>    
+          </div>
+            <br>     
+          <p>You can also check detailed video tutorial on <i class="icon-film"> </i>  <a href="http://templatemonster.com/help/how-to-create-a-database.html">How to create a database</a></p>
+       <br />   
+          <div class="box-notification"><span>If you have any issues creating a database please contact your hosting provider for help and assistance.</span></div>
+
+          <p>Feel free to check detailed tutorials below:</p>
+          <ul class="list-2">
+            <li class="first"><i class="icon-info-sign"></i> <a target="_blank" href="http://www.templatemonster.com/help/how-create-database.html">How to create a database</a></li>
+            <li class="last"><i class="icon-info-sign"></i> <a target="_blank" href="http://www.templatemonster.com/help/how-to-create-mysql-database-with-godaddy.html">How to create MySQL database with GoDaddy </a></li>
+          </ul>
+        </li>
+        <li>In your browser address bar type your domain name/root to the WordPress files and press Enter. This will start the installation procedure.
+        </li>
+        <li><strong>Creating configuration file.</strong> The initial WordPress installation screen will notify you that the configuration file is unavailable. Click Create Configuration File button to create it.
+
+            <figure class="img-paraloid"><img src="img/wordpress/wp-install-1-b.jpg" alt="Creating configuration file."></figure>
+            <p class="muted text-center"></p>
+
+        </li>
+        <li><strong>Inserting database details.</strong> Here you need to input the WordPress database connection details.
+
+            <figure class="img-paraloid"><img src="img/wordpress/wp-install-3-b.jpg" alt="Inserting database details."></figure>
+            <p class="muted text-center"></p>
+
+        </li>
+        <li><strong>Inserting website details.</strong> On the following screen you should input the website details such as:
+          <ul>
+            <li><i class="icon-angle-right"></i> website title</li>
+            <li><i class="icon-angle-right"></i> administrator username and password</li>
+            <li><i class="icon-angle-right"></i> website email address</li>
+          </ul>
+
+            <figure class="img-paraloid"><img src="img/wordpress/wp-install-6-b.jpg" alt="Inserting website details."></figure>
+            <p class="muted text-center"></p>
+
+        </li>
+        <li>When you are done click Install WordPress button.
+
+            <figure class="img-paraloid"><img src="img/wordpress/wp-install-7-b.jpg" alt="Install WordPress button."></figure>
+            <p class="muted text-center"></p>
+
+          <p>If all data has been inserted correctly you’ll see the Success window with the button to LogIn to your WordPress administration panel.</p>
+        </li>
+      </ol>     
+                
+      <div class="box-success"><span>Congratulations! You have successfully installed WordPress CMS.</span></div>
+    </article>
+
+    <!-- Plugin installation -->
+    <article id="plugins_intstall">
+      <h4>Plugin Installation</h4>
+      <p>Once the  theme is installed and activated, you will need to install its plugins:</p>
+      <ol>
+      <li>In your WordPress admin panel,  go to the menu <strong>Plugins -&gt; Add New.</strong></li>
+      <li>Click <strong>Upload</strong>.</li>
+      <li>Click <strong>Browse</strong>.</li>
+      <li>Navigate to the <strong>sources\plugins</strong>  folder in  your template package.</li>
+      <li>Select of the .zip files in this  directory and click <strong>Ok</strong>.</li>
+      <li>Click<strong> Install Now.</strong></li>
+      <li>When the plugin is installed, click <strong>Activate</strong>.</li>
+      <li>If there are more than one plugin in  the /plugins/ folder, repeat the steps to install and activate all of them.
+      </li>
+      </ol>
+      <ul class="unstyled">
+      <li><i class="icon-film"> </i> <a href="http://www.templatemonster.com/help/files/wordpress/how-to-install-plugin.swf">How to install Plugin</a></li>
+      </ul>
+
+      <figure class="img-paraloid"><img src="img/wordpress/plugins_install.jpg" alt=""></figure>
+      <p class="muted text-center"></p>
+
+      <h4>Theme Plugins:</h4>
+      <h5>Contact Form 7</h5>
+      <p><span class="label label-info">Download:</span> <a href="http://wordpress.org/extend/plugins/contact-form-7/">http://wordpress.org/extend/plugins/contact-form-7/</a><br />
+      <span class="label">Description:</span> Contact form for contact page.</p>
+      <h5>Jigoshop</h5>
+      <p><span class="label label-info">Download:</span> <a href="http://JigoShop.org/extend/plugins/jigoshop/">http://JigoShop.org/extend/plugins/jigoshop/</a><br />
+      <span class="label">Description:</span> A feature-packed eCommerce plugin built upon JigoShop core functionality ensuring excellent performance and customizability.</p>
+      <h5>AddThis</h5>
+      <p><span class="label label-info">Download:</span> <a href="http://JigoShop.org/extend/plugins/addthis/">http://JigoShop.org/extend/plugins/addthis/</a><br />
+      <span class="label">Description:</span> The AddThis Social Bookmarking Widget allows any visitor to bookmark and share your site easily with over 330 popular services.</p>
+    </article>
+    <!-- Theme installation -->
+    <article id="theme-installation">
+        <h4>Theme installation</h4>
+        <div class="box-notification"><span>
+          <strong>Warning!</strong> JigoShop plugin should be installed before the theme installation
+        </span></div>
+        <h5>Upload via ftp:</h5>
+        <ol>
+          <li>Unzip the <strong>themeXXXX.zip</strong> file to any folder on your hard drive.</li>
+          <li>Upload the <strong>themeXXXX</strong> folder to the server (to the <strong>/wp-content/themes/</strong> directory).</li>
+        </ol>
+        <h5>Upload via WordPress admin:</h5>
+        <ol>
+          <li>Login to your WordPress admin panel (add /wp-admin after your domain name in the browser address bar)</li>
+          <li>Now go to  <strong>Appearance</strong></li>
+          <li>Select the <strong>Add New Themes</strong> option</li>
+          <li>Click  <strong>Add new</strong></li>
+          <li>And upload your  <strong>themeXXXX.zip</strong> file</li>
+        </ol>
+        <p>Installing WordPress <a href="http://codex.WordPress.org/Installing_WordPress">http://codex.WordPress.org/Installing_WordPress</a></p>
+        <br />
+    </article>
+    <article id="theme-act">
+        <h4>Theme activation</h4>
+        <p>Once you have uploaded the theme, activate your theme in <strong>Appearance > Themes</strong>.<br />
+        <strong>Using Themes</strong> <a href="http://codex.WordPress.org/Using_Themes">http://codex.WordPress.org/Using_Themes</a></p> 
+        <br />
+    </article>
+    <article id="theme-sql">
+      <h4>SQL dump file installation</h4>
+      <div class="box-notification"><span>
+        ATTENTION: Importing the SQL file to your database will overwrite your existing content and website settings. DO NOT import the SQL file if you want to keep the existing content
+      </span></div>
+      <div class="box-info"><span>
+        NOTE: ALWAYS backup your database before performing any modifications
+      </span></div>
+      
+      <p>
+        <figure class="img-polaroid"><img src="img/wordpress/wp_prefix.jpg" alt=""></figure></p>
+      <div class="box-info"><span>
+        Please note that the prefix of database tables should be <strong>wp_</strong>
+      </span></div>
+      
+      <p>To make your JigoShop look like our live demo please, follow the instructions bellow.</p>
+      <ol>
+        <li>Install the template <a href="#theme_install">by following the directions </a></li>
+        <li>Then, copy and unzip files from the folder "plugins"  to the <strong>/wp-content/plugins/</strong> folder or use the admin panel <strong>Dashboard</strong> > <strong>Plugins</strong> > <strong>Add new</strong> > <strong>Upload</strong> and select your plugin.</li>
+        <li>Copy "<strong>uploads</strong>" folder to <strong>/wp-content</strong> folder.</li>
+        <li>Open the <strong>themeXXXX.sql</strong> file that is located in the <strong>sources</strong> folder with any text editor (preferably Dreamweaver or Notepad) and replace all instances of "<strong>your_website_url_here</strong>" with your website URL in the entire document using the <strong>Find and Replace</strong> tool (usually the Ctrl+H hot key). E.g.: http://www.mywebsite.com</li> 
+        <li>Please, make sure that you do not have the forward slash "/" sign at the end of the address.</li>
+        <li>Save your changes and close the file.</li>
+        <li>Next, you can import the dump file with the <strong>phpMyAdmin</strong> tool or some other database management tool.</li>
+      </ol>
+    </article>
+    <article id="theme-links">
+      <h4>Permalinks settings</h4>
+      <div class="box-info"><span>
+        NOTE: Congifure the given settings right after the installation of the theme
+      </span></div>
+      
+       <p>In this template the Permalinks are used, the standard paths of <strong>http://demolink.org/?p=1</strong> are replaced with <strong>http://demolink.org/home</strong>. This way of links configuration can be used by not only our blog followers but will help in SEO-optimisation as well. The effectiveness and main features of this link configuration method are revealed here - <a href="http://codex.WordPress.org/Using_Permalinks">http://codex.WordPress.org/Using_Permalinks</a></p>
+              Please follow the steps below:
+              <ol>
+                <li>Log in to your WordPress Administration Panel (Dashboard).</li>
+                <li>Click the <strong>Settings</strong></li>
+                <li>That done, click <strong>Permalinks</strong></li>
+                <li>In permalinks settings please select <strong>Custom structure</strong>, after that copy and past the following settings <strong>/%category%/%postname%/</strong></li>
+                <li>With that done, click the <strong>Save changes</strong> button.</li>
+              </ol>
+            <p>
+              <figure class="img-paraloid">
+                <img src="img/wordpress/permalinks.jpg" alt="">
+              </figure>
+            </p>
+            <p>If you install the theme with the dump.sql file the settings will be configured automatically. However even in this case you still need to save the current settings by clicking <strong>Save changes</strong>.</p>
+    </article>
+    <article id="theme-menu-setup">
+      <h4>Menu setup</h4>
+      <div class="img-box">
+        <figure class="img-paraloid pull-left">
+          <img src="img/wordpress/menu.jpg" alt="">
+        </figure>
+        <div class="extra-wrap">
+          <p>WordPress 3.0 comes with a new menu management panel, which makes building your sites navigation very easy and flexible.</p>
+          <h4>This theme is registered with 3 menu locations:</h4>
+          <ul>
+            <li>Header Menu - in Header</li>
+            <li>Footer Menu - in Footer</li>
+            <li>Shop Menu - in Header before Header Menu</li>
+          </ul>
+          <p>
+            For more info on how to setup your menu in wp 3.0, see <a href="http://codex.WordPress.org/Appearance_Menus_SubPanel">http://codex.WordPress.org/Appearance_Menus_SubPanel</a>
+          </p>
+        </div>
+      </div>
+      <div class="box-info"><span>
+        Note! If the menu does not appear as the livedemo, go to Appereance > Menus and select the dropdown "Header Menu"
+      </span></div>
+    </article>
+  </section>
+<!-- Getting started end --> 
+
+<!-- Page Templates and Sidebars begin -->
+  <section class="block-templates" id="page_templates_sidebars">  
+
+    <h2><i class="icon-file-alt"></i> Page Templates and Sidebars</h2>
+
+    <h4>Page Templates</h4>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Default Template</strong> (the default page template with a sidebar position)</li>
+        <li><i class="icon-angle-right"></i> <strong>Full Width Page</strong> (a page template with one column without a sidebar)</li>
+        <li><i class="icon-angle-right"></i> <strong>Home Page </strong> (a page template used for the Home page)</li>
+        <li><i class="icon-angle-right"></i> <strong>Testimonials</strong> (a page template to display the testimonial custom posts)</li>
+        <li><i class="icon-angle-right"></i> <strong>FAQs</strong> (the page template to display the  FAQ posts)</li>
+        <li><i class="icon-angle-right"></i> <strong>Archives</strong> (the page template for displaying archives)</li>
+      </ul>
+      <br />
+      <h4>Sidebar Position</h4>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Header</strong> - <em>Located at the top of pages</em></li>
+        <li><i class="icon-angle-right"></i> <strong>Before Home Page Content</strong> - <em>Located at the top of the Home Page content.</em></li>
+        <li><i class="icon-angle-right"></i> <strong>Home Page Content</strong> - <em>Located at the middle of the Home Page content.</em></li>
+        <li><i class="icon-angle-right"></i> <strong>After Home Page Content</strong> - <em>Located at the bottom of the Home Page content.</em></li>
+        <li><i class="icon-angle-right"></i> <strong>Sidebar</strong> - <em>Located on the right hand side or left hand side of pages</em></li>
+        <li><i class="icon-angle-right"></i> <strong>Footer</strong> - <em>Located at the bottom of pages.</em></li>
+        <li><i class="icon-angle-right"></i> <strong>Cart Holder</strong> - <em>Located at the top of pages. Created for the widget "Jigoshop: Cart".</em></li>
+      </ul>
+  </section>   
+<!-- Page Templates and Sidebars end --> 
+
+<!-- Posts, Categories and Post Formats begin -->
+  <section class="block-templates" id="posts_categories">  
+    <h2><i class="icon-edit"></i> Posts, Categories and Post Formats</h2>
+    <!-- Adding category -->
+    <article id="adding-category">
+      <h4>Adding category</h4>
+      <p>Review the following article for more information on adding categories: <a href="http://codex.WordPress.org/Manage_Categories_SubPanel">http://codex.WordPress.org/Manage_Categories_SubPanel</a></p>
+      <div class="row">
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/cat1.jpg" alt=""></figure>
+        <p class="muted text-center"></p>   
+        <ol>
+        <li>Log into your WordPress Administration Panel (Dashboard).</li>
+        <li>Click the <strong>Post</strong> tab</li>
+        <li>With that done, click <strong>Categories</strong> for blog posts</li>
+        <li>Type in the name of your new category</li>
+        <li>With that done, click the <strong>Add New Category</strong> button</li>
+        <li>Click the <strong>Publish</strong> button.</li>
+        </ol>
+      </div>
+    </article>
+    <!-- Blog post -->
+    <article id="blog_post">
+      <h4>Creating a Blog post</h4>
+      <div class="row">
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/cat3.jpg" alt=""></figure>
+        <p class="muted text-center"></p>   
+        <ol>
+          <li>Log in to your WordPress Administration Panel (Dashboard).</li>
+          <li>Click the <strong>Posts</strong> tab</li>
+          <li>Click the <strong>Add New</strong> tab</li>
+          <li>Type in your post content. For more info on adding posts, please check the following link <a href="http://codex.WordPress.org/Posts_Add_New_SubPanel">http://codex.WordPress.org/Posts_Add_New_SubPanel</a></li>
+          <li>
+        </ol>
+      </div>
+        <h5>Choosing Post Format</h5>
+        <p>Review the following link for more info about post formats: <a href="http://codex.WordPress.org/Post_Formats">http://codex.WordPress.org/Post_Formats</a></p>
+        <div class="row">
+          <figure class="img-paraloid pull-left"><img src="img/wordpress/post_format.jpg" alt=""></figure>
+          <ol>
+            <li>Log in to your WordPress Administration Panel (Dashboard).</li>
+            <li>Click the  <strong>Post</strong> tab</li>
+            <li>You can choose post format, click radio button in <strong>Format</strong> box.</li>
+          </ol>
+        </div>
+          <p>
+            Note: Some of these formats have their own options. Options settings will appear below the post editor.
+          </p>
+    </article>
+    <article id="product_post">
+      <h4>Creating a Product post</h4>
+      <div class="row">
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/BdL44.png" alt=""></figure>
+        <p>Products are essentially custom post types <a href="http://codex.WordPress.org/Post_Types#Custom_Types">http://codex.WordPress.org/Post_Types#Custom_Types</a>. Which means that they are differ from common posts, such as blog posts, testimonials posts etc. That allows us to manage the content of the site really easy. </p>
+      </div>
+      <p>You can learn the features of these types of posts at the official website of the <a href="http://forum.jigoshop.com/kb">Jigoshop</a> plugin. You can also follow this <a href="http://youtube.com/watch?v=K6vYV5_sC4w">video tutorial</a> to create a simple product.</p>
+      <figure class="img-paraloid pull-left"><img src="img/wordpress/new-product.jpg" alt="" style="width:100%; height:auto"><br />
+        <figcaption>Creating a product post</figcaption>
+      </figure>
+      <ol>
+        <li>Log into your WordPress Administration Panel (Dashboard).</li>
+        <li>Click the <strong>Products</strong> tab</li>
+        <li>Click the <strong>Add New</strong> tab</li>
+        <li>Insert your product <strong>title</strong>.</li>
+        <li>Upload your image with the help of the <strong>Featured Image </strong>option (click the <strong>Set featured image</strong> link)</li>
+        <li>Under <strong>Product Data</strong>, choose a Simple product type, and fill in a short Summary of the product</li>
+        <li>Select the <strong>Pricing tab</strong> and enter your price and tax options</li>
+        <li>You can optionally set an <strong>Inventory</strong> and <strong>Attribute</strong>. More information on these two options you can find in <a href="http://forum.jigoshop.com/kb/creating-products/product-screen-explained">Product Screen Explained</a> article</li>
+        <li>And click the <strong>Publish</strong> button</li>
+      </ol>
+    </article>
+    <!-- Creating a slider post -->
+    <article id="slider_post">
+      <h4>Creating a Slider post</h4>
+      <div class="row">
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/slide_new.jpg" alt=""></figure>
+        <p>Slides are essentially <a href="http://codex.WordPress.org/Post_Types#Custom_Types">custom post types</a> which means that they are different from common posts, such as blog posts, portfolio posts etc. That allows us to manage the content of the site really easy. </p>
+      </div>
+      <figure class="img-paraloid"><img src="img/wordpress/slider.jpg" alt=""></figure>
+      <p class="muted text-center">Creating a slider post</p>  
+      <ol>
+        <li>Log into your WordPress Administration Panel (Dashboard).</li>
+        <li>Click the <strong>Slider</strong> tab</li>
+        <li>And now click the <strong>Add New</strong> tab</li>
+        <li>Insert your slider <strong>title</strong>.</li>
+        <li>Upload your image with the help of the <strong>Featured Image </strong>option (click the <strong>Set featured image</strong> link)</li>
+        <li>You can use the following fields for your slider<em></em>:
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Caption</strong> -a field for slide caption.</li>
+            <li><i class="icon-angle-right"></i> <strong>URL</strong> -a field for slide URL (you can put external link here).</li>
+          </ul>
+        </li>
+        <li>And click the <strong>Publish</strong> button</li>
+      </ol>
+    </article>
+    <!-- Creating a Testimonials post -->
+    <article id="testimonial_post">
+      <h4>Adding a Testimonials post</h4>
+      <figure class="img-paraloid"><img src="img/wordpress/testi.jpg" alt=""></figure>
+      <p class="muted text-center">Adding a Testimonials post</p>
+      <ol>
+        <li>Log into your WordPress Administration Panel (Dashboard).</li>
+        <li>Click the <strong>Testimonials</strong> tab</li>
+        <li>And click the <strong>Add New</strong> tab</li>
+        <li>Fill in all the required fields (<strong>title</strong>, <strong>content</strong>)</li>
+        <li>Upload your image with the help of the <strong>Featured Image </strong>option (click the <strong>Set featured image </strong>link)</li>
+        <li>You can use the following fields for this sort of posts:
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Name</strong> - author's name</li>
+            <li><i class="icon-angle-right"></i> <strong>URL</strong> - author's link</li>
+            <li><i class="icon-angle-right"></i> <strong>Info</strong> - author's additional info</li>
+          </ul>
+        </li>
+        <li>Hit the <strong>Publish</strong> button</li>
+      </ol>
+    </article>
+    <!-- Creating a Portfolio post -->
+    <article id="faq_post">
+      <h4>Adding an FAQs post</h4>
+      <figure class="img-paraloid"><img src="img/wordpress/faq.jpg" alt=""></figure>
+      <p class="muted text-center">Adding a FAQs post</p>
+      <ol>
+        <li>Log into your WordPress Administration Panel (Dashboard).</li>
+        <li>Click the <strong>FAQs</strong> tab</li>
+        <li>And now the <strong>Add New</strong> button</li>
+        <li>Since it is a question/answer type of post, the title of the post is the question and the content is the answer.</li>
+        <li>Click <strong>Publish</strong></li>
+      </ol>
+    </article>
+    <!-- Creating a Portfolio post -->
+    <article id="team_post">
+      <h4>Adding an Our Team post</h4>
+      <figure class="img-paraloid"><img src="img/wordpress/our_team.jpg" alt=""></figure>
+      <p class="muted text-center">Adding a Our Team post</p>
+      <ol>
+        <li>Log into your WordPress Administration Panel (Dashboard).</li>
+        <li>Click the <strong>Our Team</strong> tab</li>
+        <li>And now the <strong>Add New</strong> button</li>
+        <li>Fill in all the required fields (<strong>title</strong>, <strong>content</strong>)</li>
+        <li>Upload your image with the help of the <strong>Featured Image </strong>option (click the <strong>Set featured image </strong>link)</li>
+        <li>You can use the following fields for this sort of posts:
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Position</strong> - the position of the person.</li>
+            <li><i class="icon-angle-right"></i> <strong>Info</strong> - an additional info</li>
+          </ul>
+        </li>
+        <li>Click <strong>Publish</strong></li>
+      </ol>
+    </article>
+    <article id="services_post">
+      <h4>Adding a Service post</h4>
+      <figure class="img-paraloid">
+        <img src="img/wordpress/service.jpg" alt="" style="width:100%; height:auto"><br />
+        <figcaption>Adding a Service post</figcaption>
+      </figure>
+      <ol>
+        <li>Log in to your WordPress Administration Panel (Dashboard).</li>
+        <li>Click the <strong>Services</strong> tab</li>
+        <li>And now the <strong>Add New</strong> button</li>
+        <li>Fill in all the required fields (<strong>title</strong>, <strong>content</strong>)</li>
+        <li>Upload your image with the help of the <strong>Featured Image </strong>option (click the <strong>Set featured image </strong>link)</li>
+        <li>Click <strong>Publish</strong></li>
+      </ol>
+    </article>
+  </section>   
+<!-- Posts, Categories and Post Formats end --> 
+
+<!-- Shortcodes begin -->
+  <section class="block-templates" id="shortcodes">  
+
+    <h2><i class="icon-file"></i> Shortcodes</h2>
+    <p>A shortcode is a powerful content building tool <a href="http://codex.WordPress.org/Shortcode">http://codex.WordPress.org/Shortcode</a>. Shortcodes are easy to use. First off all, make sure that the editing mode is set to <strong>Visual</strong>.</p>
+    <figure class="img-paraloid"><img src="img/wordpress/sc_visual.jpg" alt=""></figure>
+    <p>Then please click the button for the shortcodes. Then  select the shortcode you want to insert.</p>
+    <figure class="img-paraloid"><img src="img/wordpress/sc_menu.jpg" alt=""></figure>
+    <br>
+    <p>
+      In this theme the following shortcodes are available:
+    </p>    
+      <h5>Basic</h5>
+        <ul>
+          <li><i class="icon-angle-right"></i> <strong>Recent Posts</strong> - for recent shortcodes with a number of settings.</li>
+          <li><i class="icon-angle-right"></i> <strong>Recent Testimonials</strong> - for recent testimonials</li>
+          <li><i class="icon-angle-right"></i> <strong>Popular Posts</strong> - for the popular posts</li>
+          <li><i class="icon-angle-right"></i> <strong>Recents Comments</strong> - for the recent comments</li>
+          <li><i class="icon-angle-right"></i> <strong>Tags</strong> - for the TagCloud</li>
+        </ul>
+      <h5>Grid columns</h5>
+        <ul>
+          <li><i class="icon-angle-right"></i> <strong>grid_1</strong></li>
+          <li><i class="icon-angle-right"></i> <strong>grid_2</strong></li>
+          <li><i class="icon-angle-right"></i> <strong>grid_3</strong></li>
+          <li><i class="icon-angle-right"></i> ... - the given shortcodes are used for the layout framework on the basis of <a href="http://960.gs/">960gs</a>.</li>
+        </ul>
+      <h5>Fluid columns</h5>
+        <ul>
+          <li><i class="icon-angle-right"></i> <strong>1/2</strong></li>
+          <li><i class="icon-angle-right"></i> <strong>1/3</strong></li>
+          <li><i class="icon-angle-right"></i> <strong>2/3</strong></li>
+          <li><i class="icon-angle-right"></i> ... - the given shortcodes are used for the layout framework on the basis of fluid columns </li>
+        </ul>
+      <h5>HTML</h5>
+        <ul>
+          <li><i class="icon-angle-right"></i> <strong>Button</strong> - the shortcode for the button</li>
+          <li><i class="icon-angle-right"></i> <strong>Drop Cap</strong> - to make the first letter in the paragraph an uppercase letter.</li>
+          <li><i class="icon-angle-right"></i> <strong>Blockquote</strong> - for a quotation</li>
+          <li><i class="icon-angle-right"></i> <strong>Frame</strong> - a wrapper for the image or any other object</li>
+          <li><i class="icon-angle-right"></i> <strong>Frame Left</strong> - a wrapper for the image or any other object with the left side location</li>
+          <li><i class="icon-angle-right"></i> <strong>Frame Right</strong> - a wrapper for the image or any other object with the right side location</li>
+          <li><i class="icon-angle-right"></i> <strong>Spacer</strong> - vertical gap between objects</li>
+          <li><i class="icon-angle-right"></i> <strong>Horizontal Rule</strong> - the horizontal separation line</li>
+          <li><i class="icon-angle-right"></i> <strong>Small Horizontal Rule</strong> - the small horizontal separation line</li>
+        </ul>
+      <h5>Alert Boxes</h5>
+        <ul>
+          <li><i class="icon-angle-right"></i> <strong>Alert</strong> - the Error Box</li>
+          <li><i class="icon-angle-right"></i> <strong>Approved</strong> - the Approve Box</li>
+          <li><i class="icon-angle-right"></i> <strong>Attention</strong> - the Attention box</li>
+          <li><i class="icon-angle-right"></i> <strong>Notice</strong> - the Notice Box</li>
+        </ul>
+      <h5>Audio &amp; Video</h5>
+        <ul>
+          <li><i class="icon-angle-right"></i> <strong>Audio</strong> - insert audio (HTML support)</li>
+          <li><i class="icon-angle-right"></i> <strong>Video</strong> - insert video. <strong>Youtube</strong>, <strong>Vimeo</strong> files can be embedded as well as any file located on your server.</li>
+        </ul>
+      <h5>Tabs</h5>
+        <p>Shortcode for Tabs</p>
+      <h5>Toggle</h5>
+        <p>Shortcode for toggle-script. With a number of such scripts added you can get Accordion</p>
+    <!-- ///////////////////////// Jihoshop ///////////////////////// -->
+      <h5>Jigoshop</h5>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Shopping Cart [my_cart]</strong> - shows the cart page</li>
+      </ul>
+      <p>The following shortcodes are inserted into pages upon installation and therefore shouldn't be used anywhere else:</p>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>[jigoshop_cart]</strong> - shows the checkout page</li>
+        <li><i class="icon-angle-right"></i> <strong>[jigoshop_pay]</strong> - shows the checkout pay page</li>
+        <li><i class="icon-angle-right"></i> <strong>[jigoshop_order_tracking]</strong> - shows the order tracking form</li>
+        <li><i class="icon-angle-right"></i> <strong>[jigoshop_my_account]</strong> - shows the user account page</li>
+        <li><i class="icon-angle-right"></i> <strong>[jigoshop_edit_address]</strong> - shows the user account edit address page</li>
+        <li><i class="icon-angle-right"></i> <strong>[jigoshop_view_order]</strong> - shows the user account view order page</li>
+      </ul>
+      <p>The following shortcodes can be used anywhere you want:</p>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>[recent_products per_page="12" columns="4" pagination="yes"]</strong> - Lists recent products - useful on the homepage. The per page limits the amount of recent products shown, and the columns attribute controls how many columns wide the products should be before wrapping.</li>
+        <li><i class="icon-angle-right"></i> <strong>[featured_products per_page="12" columns="4" pagination="yes"]</strong> - Works exactly the same as recent products but displays products which have been set as “featured".</li>
+        <li><i class="icon-angle-right"></i> <strong>[jigoshop_category slug="category-name" per_page="8" columns="4" pagination="yes"]</strong> - Works the same way as recent products shortcode, but instead it displays the category you input for slug.</li>
+        <li><i class="icon-angle-right"></i> <strong>[product id="99"]</strong> - Show a single product by ID</li>
+        <li><i class="icon-angle-right"></i> <strong>[product sku="FOO"]</strong> - Show a single product by SKU</li>
+        <li><i class="icon-angle-right"></i> <strong>[products ids="1, 2, 3, 4, 5" pagination="yes"]</strong> - Show multiple products by ID</li>
+        <li><i class="icon-angle-right"></i> <strong>[products skus="foo, bar, baz" orderby="date" order="desc" pagination="yes"]</strong> - Show multiple products by SKU</li>
+        <li><i class="icon-angle-right"></i> <strong>[add_to_cart id="1" sku="1"]</strong> - SKU is optional. Returns the add to cart URL for this product</li>
+        <li><i class="icon-angle-right"></i> <strong>[add_to_cart_url id="1" sku="1" price="no" class="yourClass"]</strong> - SKU, Price, Class are all optional. With price set to no, it will only show the add to cart button for this product. With price set to yes, the product's price + button will be displayed.</li>
+        <li><i class="icon-angle-right"></i> <strong>[product_search]</strong> - Displays a search field to search through all products</li>
+        <li><i class="icon-angle-right"></i> <strong>[on_sale]</strong> - Displays all products on sale</li>
+      </ul>
+    </article>
+  </section>  
+<!-- Shortcodes end --> 
+<!-- Plugins and Custom Widgets begin -->
+  <section class="block-templates" id="widgets">  
+
+    <h2><i class="icon-magnet"></i> Custom Widgets</h2>
+    <article>
+        <p>The following widgets are also used in the theme:</p>
+        
+        <div class="row">
+          <figure class="img-paraloid pull-left">
+            <img src="img/wordpress/widget_post_cycle.jpg" alt="">
+          </figure>
+          <h5>My - Post Cycle</h5>
+          <p>Displays recent posts, you can also display custom posts. The Widget is used for the slideshow because of Cycle plugin in its structure. The given widget contains the following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>Limit Text:</strong> - the number of words in the brief post description. </li>
+            <li><i class="icon-angle-right"></i> <strong>Posts per page:</strong> - the number of posts to display.</li>
+            <li><i class="icon-angle-right"></i> <strong>Post Type:</strong> - a Post Type selection.</li>
+          </ul>
+        </div>
+        <br />    
+        <div class="row">
+          <figure class="img-paraloid pull-left">
+            <img src="img/wordpress/widget_recent_posts.jpg" alt="">
+          </figure>
+          <h5>My - Recent Posts</h5>
+          <p>Displays recent posts. You can also show custom posts of certain categories and add a read more link. The given Wdiget contains tge following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>Category Slug:</strong> - Post Category Slug.</li> 
+            <li><i class="icon-angle-right"></i> <strong>Post Format:</strong> - Choose Post Format for displaying posts.</li> 
+            <li><i class="icon-angle-right"></i> <strong>Posts per page:</strong> - the number of posts to display.</li>
+            <li><i class="icon-angle-right"></i> <strong>Link Text:</strong> - the Link Text that is displayed after the Recent Posts.</li>
+            <li><i class="icon-angle-right"></i> <strong>Link Url:</strong> - Link URL that is displayed after the Recent posts.</li>
+          </ul>
+        </div> 
+        <br />
+        <!-- ///////////////////////// Jihoshop ///////////////////////// -->
+        <div class="row"> 
+          <figure class="img-paraloid pull-left">
+            <img src="img/wordpress/widget_recent_products.jpg" alt="">
+          </figure>
+          <h5>My - Recent Products</h5>
+          <p>Displays products. These Widgets have the following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>Count of Products:</strong> - the number of products to display.</li>
+            <li><i class="icon-angle-right"></i> <strong>Show post thumbnail</strong> - show thumbnail for a post</li>
+              <li><i class="icon-angle-right"></i> <strong>Width:</strong> - Image Width</li>
+              <li><i class="icon-angle-right"></i> <strong>Height:</strong> - Image Height</li>
+            <li><i class="icon-angle-right"></i> <strong>Product name excerpt length(chars):</strong> - the number of characters in product title to display.</li>
+            <li><i class="icon-angle-right"></i> <strong>Show product description:</strong> - show/hide product short description.</li>
+            <li><i class="icon-angle-right"></i> <strong>Show product rating:</strong> - show/hide product rating.</li>
+          </ul>
+        </div>
+        <br />
+        <div class="row">
+          <figure class="img-paraloid pull-left">
+          <img src="img/wordpress/widget_brands.jpg" alt="">
+          </figure>
+          <div class="extra-wrap">
+            <h5>My - Brands</h5>
+            <p>This is the Widget that allows you to show set of banners. The widget contains the following options:</p>
+            <ul>
+              <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+              <li><i class="icon-angle-right"></i> <strong>Show brand thumbnail</strong> - show or hide brand thumbnail.</li>
+              <li><i class="icon-angle-right"></i> <strong>Brand thumbnail width</strong> - width of brand thumbnail.</li>
+              <li><i class="icon-angle-right"></i> <strong>Brand thumbnail height</strong> - height of brand thumbnail.</li>
+              <li><i class="icon-angle-right"></i> <strong>Show brand name</strong> - show or hide brand name.</li>
+              <li><i class="icon-angle-right"></i> <strong>Select brands:</strong> - select brand names to show.</li>
+            </ul>
+          </div>
+        </div>
+        <br />       
+        <div class="row"> 
+          <figure class="img-paraloid pull-left">
+            <img src="img/wordpress/widget_featured_products.jpg" alt="">
+          </figure>
+          <h5>My - Featured Products</h5>
+          <p>Displays products. These Widgets have the following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>Count of Products:</strong> - the number of products to display.</li>
+            <li><i class="icon-angle-right"></i> <strong>Show post thumbnail</strong> - show thumbnail for a post</li>
+              <li><i class="icon-angle-right"></i> <strong>Width:</strong> - Image Width</li>
+              <li><i class="icon-angle-right"></i> <strong>Height:</strong> - Image Height</li>
+            <li><i class="icon-angle-right"></i> <strong>Show product description:</strong> - show/hide product short description.</li>
+            <li><i class="icon-angle-right"></i> <strong>Show product rating:</strong> - show/hide product rating.</li>
+          </ul>
+        </div>
+        <br />
+<!-- ///////////////////////// Jihoshop ///////////////////////// -->
+        <div class="row">
+          <figure class="img-paraloid pull-left">
+            <img src="img/wordpress/widget_requestaquote.jpg" alt="">
+          </figure>
+          <h5>My - Request a Quote</h5>
+          <p>An advanced text widget with a whole lot of extra fields. The given Widget contains the following fields:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>Text:</strong> - Widget Text.</li> 
+            <li><i class="icon-angle-right"></i> <strong>Button Text:</strong> - Button Text</li>
+            <li><i class="icon-angle-right"></i> <strong>Button URL:</strong> - Button URL</li>
+          </ul>
+        </div> 
+        <br />
+        <div class="row">
+          <figure class="img-paraloid pull-left" style="width:30%;"><a href="img/wordpress/widget_advanced_cycle.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/widget_advanced_cycle.jpg" alt=""><i class="icon-search"></i></a></figure>
+          <div class="clearfix">
+            <h5>My - Advanced Cycle</h5>
+            <p>The multifunctional widget used to display different post types including the blog posts, as well as the functionality of settings display. The given widget contains the following options:</p>
+            <ul>
+              <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+              <li><i class="icon-angle-right"></i> <strong>Posts type:</strong> - select Posts type</li> 
+              <li><i class="icon-angle-right"></i> <strong>Number of posts to show:</strong> - the number of posts</li>
+              <li><i class="icon-angle-right"></i> <strong>Select only featured products</strong> - show featured products</li>
+              <li><i class="icon-angle-right"></i> <strong>Select only products on sale</strong> - show products on sale</li>
+              <li><i class="icon-angle-right"></i> <strong>Show product price</strong> - display product price</li>
+              <li><i class="icon-angle-right"></i> <strong>Show product rating</strong> - display product rating</li>
+              <li><i class="icon-angle-right"></i> <strong>Sort by:</strong> - Post selection option</li>
+              <li><i class="icon-angle-right"></i> <strong>Reverse sort order (ascending):</strong> - reverse sort order</li>
+              <li><i class="icon-angle-right"></i> <strong>Show number of comments</strong> - show the number of comments</li>
+              <li><i class="icon-angle-right"></i> <strong>Show meta</strong> - show meta</li>
+              <li><i class="icon-angle-right"></i> <strong>Container class:</strong> - row class. Set to <em>featured_custom_posts</em> by default</li>
+              <li><i class="icon-angle-right"></i> <strong>Show post title</strong> - show post title.</li>
+              <li><i class="icon-angle-right"></i> <strong>Date as title</strong> - for date usage instead of the title</li>
+              <li><i class="icon-angle-right"></i> <strong>Before title:</strong> - custom HTML-markup before Title</li>
+              <li><i class="icon-angle-right"></i> <strong>After title:</strong> - custom HTML-markup after Title</li>
+              <li><i class="icon-angle-right"></i> <strong>Show post excerpt</strong> - show excerpt</li>
+              <li><i class="icon-angle-right"></i> <strong>Excerpt length (words):</strong> - excerpt length (the number of words)</li>
+              <li><i class="icon-angle-right"></i> <strong>Excerpt as link</strong> - convert excerpt into a link</li>
+              <li><i class="icon-angle-right"></i> <strong>Show "More link"</strong> - show link <em>More link</em> after the post</li>
+              <li><i class="icon-angle-right"></i> <strong>Link text:</strong> - Link Text</li>
+              <li><i class="icon-angle-right"></i> <strong>Link class:</strong> - CSS-class for the link <em>More link</em></li>
+              <li><i class="icon-angle-right"></i> <strong>Show post thumbnail</strong> - show thumbnail for a post</li>
+              <li><i class="icon-angle-right"></i> <strong>Width:</strong> - Image Width</li>
+              <li><i class="icon-angle-right"></i> <strong>Height:</strong> - Image Height</li>
+              <li><i class="icon-angle-right"></i> <strong>Thumbnail as link</strong> - convert the image into a link</li>
+              <li><i class="icon-angle-right"></i> <strong>Show global link to all posts</strong> - Show global link to all posts</li>
+              <li><i class="icon-angle-right"></i> <strong>Link text:</strong> - the text of the given link</li>
+              <li><i class="icon-angle-right"></i> <strong>Link URL:</strong> - Link URL</li>
+              <li><i class="icon-angle-right"></i> <strong>Link class: </strong> - CSS-class for the link</li>
+            </ul>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <figure class="img-paraloid pull-left">
+          <img src="img/wordpress/widget_social_networks.jpg" alt="">
+          </figure>
+          <div class="extra-wrap">
+            <h5>My - Social Networks</h5>
+            <p>This is the Widget that allows linkage to your social network accounts. The widget contains the following options:</p>
+            <ul>
+              <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+              <li><i class="icon-angle-right"></i> <strong>Facebook URL</strong>, <strong>Twitter URL</strong>, <strong>Flickr URL</strong> etc. - the links to your Social Network accounts</li> 
+              <li><i class="icon-angle-right"></i> <strong>Display:</strong> the way of icons display.
+                <ul>
+                  <li><em>Icons</em> - icons only.</li>
+                  <li><em>Labels</em> - text only.</li>
+                  <li><em>Both</em> - icons and text.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <br />    
+        <div class="row">
+          <figure class="img-paraloid pull-left">
+          <img src="img/wordpress/widget_banners.jpg" alt="">
+          </figure>
+          <div class="extra-wrap">
+            <h5>My - Banners</h5>
+            <p>This is the Widget that allows you to show set of banners. The widget contains the following options:</p>
+            <ul>
+              <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+              <li><i class="icon-angle-right"></i> <strong># banner path:</strong> - path to your banner image.</li>
+              <li><i class="icon-angle-right"></i> <strong># banner link:</strong> - path to your banner link.</li>
+            </ul>
+          </div>
+        </div>
+        <br />       
+        <div class="row">
+          <figure class="img-paraloid pull-left">
+          <img src="img/wordpress/widget_flickr.jpg" alt="">
+          </figure>
+          <div class="extra-wrap">
+            <h5>My - Flickr</h5>
+            <p>This is the Widget that displays photos from your flickr gallery. The widget contains the following options:</p>
+            <ul>
+              <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+              <li><i class="icon-angle-right"></i> <strong>Flickr ID:</strong> - your flickr ID</li> 
+              <li><i class="icon-angle-right"></i> <strong>Images count:</strong> - amount of photos to show.</li>
+              <li><i class="icon-angle-right"></i> <strong>Link Text:</strong> - text of link under flickr photos.</li>
+            </ul>
+          </div>
+        </div>
+        <br />       
+        <div class="row">
+          <figure class="img-paraloid pull-left">
+          <img src="img/wordpress/widget_carousel.jpg" alt="">
+          </figure>
+          <div class="extra-wrap">
+            <h5>My - Carousel</h5>
+            <p>This is the Widget that displays different kind of posts from your site. The widget contains the following options:</p>
+            <ul>
+              <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
+              <li><i class="icon-angle-right"></i> <strong>Limit Text:</strong> - the number of words in the brief post description.</li>
+              <li><i class="icon-angle-right"></i> <strong>Posts per page:</strong> - the number of posts to display.</li> 
+              <li><i class="icon-angle-right"></i> <strong>Post type:</strong> - choose prefered post type (e.g. blog, testimonials).</li>
+              
+            </ul>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <figure class="img-paraloid pull-left">
+          <img src="img/wordpress/widget_vcard.jpg" alt="">
+          </figure>
+          <div class="extra-wrap">
+            <h5>My - vCard</h5>
+            <p>This is the Widget that displays information about your company or about you. The widget contains the following options:</p>
+            <ul>
+              <li><i class="icon-angle-right"></i> <strong>Title (optional):</strong> - Widget Title</li>
+              <li><i class="icon-angle-right"></i> <strong>Street Address:</strong> - put your street address here</li> 
+              <li><i class="icon-angle-right"></i> <strong>City/Locality:</strong> - enter your city or locality here</li>
+              <li><i class="icon-angle-right"></i> <strong>State/Region:</strong> - enter your state or region here</li>
+              <li><i class="icon-angle-right"></i> <strong>Zipcode/Postal Code:</strong> - enter your zipcode or postal code here</li>
+              <li><i class="icon-angle-right"></i> <strong>Telephone:</strong> - telephone number</li>
+              <li><i class="icon-angle-right"></i> <strong>Email:</strong> - your email</li>
+            </ul>
+          </div>
+        </div>
+    </article>
+  </section>  
+<!-- Plugins and Custom Widgets end -->
+<!-- Theme Options begin -->
+  <section class="block-templates" id="theme_options">  
+
+    <h2><i class="icon-cogs"></i> Theme Options</h2>
+    <p>The following theme contains the Settings option. These settings allow you to change of theme’s color palette, order of items, turn items on/off  and do lots of other things. In order to use these settings, please go to <strong>Appearance &rarr; Theme Options</strong>.</p>
+    <article id="general_option"> 
+      <h4>General</h4>
+      <div class="row"> 
+      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_general.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_general.jpg" alt=""><i class="icon-search"></i></a></figure>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Body styling</strong> - you can select the body color and the background pattern.</li>
+        <li><i class="icon-angle-right"></i> <strong>Header background color</strong> - Header background color</li>
+        <li><i class="icon-angle-right"></i> <strong>Buttons and links color</strong> - Buttons and links color</li>
+        <li><i class="icon-angle-right"></i> <strong>Body Text</strong> - You can choose your preferred font for body text. There are following options available for editing the fonts:
+          <ol style="margin-bottom:0; padding-left:20px; overflow:hidden;">
+            <li><em>Font size</em></li>
+            <li><em>Line height</em></li>
+            <li><em>Font Family</em></li>
+            <li><em>Font style (normal, bold, italic)</em></li>
+            <li><em>Character Sets (Latin, Greek, Cyrillic etc.)</em></li>
+            <li><em>Color</em></li>
+          </ol>
+        </li>
+        <p><span class="label label-warning">Note:</span> Font marked with * means that it will be loaded from the Google Web Fonts library.</p>
+        <li><i class="icon-angle-right"></i> <strong>H1-H6 Headings</strong> - You can choose your preferred font for headings and titles. There are following options available for editing the fonts:
+          <ol style="margin-bottom:0; padding-left:20px; overflow:hidden;">
+            <li><em>Font size</em></li>
+            <li><em>Line height</em></li>
+            <li><em>Font Family</em></li>
+            <li><em>Font style (normal, bold, italic)</em></li>
+            <li><em>Character Sets (latin, greek, cyrillic etc.)</em></li>
+            <li><em>Color</em></li>
+          </ol>
+        </li>
+        <p><span class="label label-warning">Note:</span> Font marked with * means that it will be loaded from the Google Web Fonts library.</p>
+        <li><i class="icon-angle-right"></i> <strong>Display search box?</strong> - show/hide the search bar in the header</li>
+        <li><i class="icon-angle-right"></i> <strong>Display Login and Register links?</strong> - show/hide the links in the pages</li>
+        <li><i class="icon-angle-right"></i> <strong>Custom CSS</strong> - if you need to add some CSS rules, but you don't want to mess with the main css file, you can use this field. Just insert your new css rules</li>
+      </ul>
+      </div>
+    </article>
+    <article id="logo_option">
+      <h4>Logo &amp; Favicon</h4> 
+      <div class="row"> 
+      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_logo.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_logo.jpg" alt=""><i class="icon-search"></i></a></figure>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>What kind of logo?</strong> - indicates what kind of logo to use, whether the text one or the image logo.</li>
+        <li><i class="icon-angle-right"></i> <strong>Logo URL</strong> - with Image logo selected you can upload the new image with the help of the 'upload' feature or use any pic from 
+        <li><i class="icon-angle-right"></i> <strong>Favicon</strong> - you can upload the new favicon with the help of the 'upload' feature or use any pic from the Media Library.</li>
+      </ul>
+      </div>
+    </article>
+    <article id="navigation_option">
+      <h4>Navigation</h4> 
+      <div class="row"> 
+      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_nav.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_nav.jpg" alt=""><i class="icon-search"></i></a></figure>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Delay</strong> - delay in milliseconds that defines when the menu hides</li>
+        <li><i class="icon-angle-right"></i> <strong>Fade-in animation</strong> - enable/disable the fade-in animation</li>
+        <li><i class="icon-angle-right"></i> <strong>Slide-down animation</strong> - enable/disable the slide animation</li>
+        <li><i class="icon-angle-right"></i> <strong>Speed</strong> - the speed of the submenu expanding</li>
+        <li><i class="icon-angle-right"></i> <strong>Arrows markup</strong> - enable/disable  arrows for the menu items that have submenus</li>
+      </ul>
+      </div>
+    </article>
+    <article id="slider_option">
+      <h4>Slider</h4>
+      <div class="row"> 
+      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_slider.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_slider.jpg" alt=""><i class="icon-search"></i></a></figure>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Sliding effect</strong> - slider transition effect</li>
+        <li><i class="icon-angle-right"></i> <strong>Sliding direction</strong> - sliding direction, 'horizontal' or 'vertical'</li>
+        <li><i class="icon-angle-right"></i> <strong>Slideshow</strong> - automatically animation</li>
+        <li><i class="icon-angle-right"></i> <strong>Pause time</strong> - delay between slides (ms)</li>
+        <li><i class="icon-angle-right"></i> <strong>Animation speed</strong> - the speed of the animation (ms)</li>
+        <li><i class="icon-angle-right"></i> <strong>Next &amp; Prev navigation</strong> - show/hide the Next &amp; Prev buttons</li>
+        <li><i class="icon-angle-right"></i> <strong>Pagination</strong> - show or hide pagination (e.g. 1, 2, 3, 4 ...)</li>
+        <li><i class="icon-angle-right"></i> <strong>Keyboard</strong> - allow slider navigating via keyboard left/right keys</li>
+        <li><i class="icon-angle-right"></i> <strong>Mousewheel</strong> - allow slider navigating via mousewheel</li>
+        <li><i class="icon-angle-right"></i> <strong>Randomize</strong> - randomize slide order</li>
+      </ul>
+      </div>
+    </article>
+    <article id="blog_option">
+      <h4>Blog</h4>
+      <div class="row"> 
+      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_blog.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_blog.jpg" alt=""><i class="icon-search"></i></a></figure>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Blog Title</strong> - your Blog Title used on Blog page</li>
+        <li><i class="icon-angle-right"></i> <strong>Related Posts Title</strong> - your Title used on Single Post page for related posts.</li>
+        <li><i class="icon-angle-right"></i> <strong>Sidebar position</strong> - you can select the position for the sidebar(right or left)</li>
+        <li><i class="icon-angle-right"></i> <strong>Blog image size</strong> - the Image size (Normal size or Large size) for the Blog page</li>
+        <li><i class="icon-angle-right"></i> <strong>Single post image size</strong> - the image size (Normal size or Large size) for the single post page</li>
+        <li><i class="icon-angle-right"></i> <strong>Enable Meta for blog posts?</strong> - display meta for posts</li>
+        <li><i class="icon-angle-right"></i> <strong>Enable excerpt for blog posts?</strong> - display excerpt for posts</li>
+      </ul>
+      </div>
+    </article>
+    <article id="footer_option">
+      <h4>Footer</h4>
+      <div class="row"> 
+      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_footer.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_footer.jpg" alt=""><i class="icon-search"></i></a></figure>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Footer copyright text</strong> - footer text content. If the text field is empty, the default content will be displayed. It is located in the <em>footer.php</em> file</li>
+        <li><i class="icon-angle-right"></i> <strong>Google Analytics Code</strong> -you can put a code for gathering your site's SEO stats. . For instance, <em>Google Analytics Code</em></li>
+        <li><i class="icon-angle-right"></i> <strong>Feedburner URL</strong> - <a href="http://www.feedburner.com/" target="_blank">Feedburner</a> is a Google service that takes care of your RSS feed. Paste your Feedburner URL here to let readers see it in your website</li>
+        <li><i class="icon-angle-right"></i> <strong>Display Footer menu</strong> - enable or disable the footer menu</li>
+      </ul>
+      </div>
+    </article>
+  </section>  
+<!-- Theme Options end -->
+</div>
+</div>
+
+  </div>
+</div>
+</div>
+</div>
+   <!-- Footer
+    ================================================== -->
+    <footer>
+      <div class="container">        
+       JigoShop Documentation<br>
+      © 2013 Template Monster
+      </div>
+    </footer>
+
+  <div id="back-top">
+    <a href="#"><i class="icon-double-angle-up"></i></a>
+  </div>    
+
+<!-- <script src="js/bootstrap-scrollspy.js"></script>  -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || []; 
+  _gaq.push(['_setAccount', 'UA-2787305-5']); 
+  _gaq.push(['_trackPageview']); 
+
+  (function() { 
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; 
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; 
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); 
+  })();
+</script>
+    
+</body> 
+
+</html>
