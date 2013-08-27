@@ -125,6 +125,28 @@
         }
       }
     })  
+ /*Language switcher
+
+      $('#lang_icon').toggle(function(){
+        $('#lang_icon > i').find('i').removeClass('icon-angle-down').addClass('icon-angle-up');
+        $('#lang_list').slideDown(200);
+      }, function(){
+        $('#lang_list').slideUp(200);
+        $('#lang_icon > i').find('i').addClass('icon-angle-down').removeClass('icon-angle-up');
+      })
+
+      $('#lang_list li').click(function(){
+        $('#lang_list').slideUp(200);
+        $('#lang_icon > i').find('i').addClass('icon-angle-down').removeClass('icon-angle-up');
+      })
+      $(document).click(function() { 
+        $('#lang_list').slideUp(200);
+        $('#lang_icon > i').find('i').addClass('icon-angle-down').removeClass('icon-angle-up');
+       }); 
+      $('#lang_icon').click(function(e){ 
+          e.stopPropagation(); 
+      });
+*/
     !function ($) {
       $(function(){	
         var $window = $(window)		
