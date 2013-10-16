@@ -11,6 +11,14 @@
 .clearfix:after {
   clear: both;
 }
+.clear {
+  clear:both;
+  display:block;
+  overflow:hidden;
+  visibility:hidden;
+  width:0;
+  height:0;
+}
 .hide-text {
   font: 0/0 a;
   color: transparent;
@@ -69,7 +77,7 @@ h6 small {
   color: #999999;
 }
 h1 {
-  font-size: 34px;
+  font-size: 30px;
   line-height: 1.1em;
   color: #3a3a3a;
 }
@@ -193,7 +201,7 @@ header {
   padding: 14px 0 17px;
 }
 header h1 {
-  margin: 2px 0 0 20px;
+  margin: 2px 0 0 110px;
 }
 header h1 a {
   color: #3a3a3a;
@@ -202,12 +210,8 @@ header .brand{
   text-indent:-1000px;
   background:url(/help/wp-content/logo.png) no-repeat 0 0;
   width:375px;
-  height:48px;
+  height:68px;
   display:block
-}
-.img-logo {
-  margin: -4px 20px 0 0;
-  max-height: 50px;
 }
 /*------ content ------- */
 #content {
@@ -356,9 +360,7 @@ header .brand{
 .bs-docs-sidenav > li > a:before {
   position: absolute;
   left: 14px;
-  font-size: 18px;
-  top: 8px;
-  font-weight: normal;
+  font-size: 20px;
   -webkit-font-smoothing: antialiased;
 }
 .bs-docs-sidenav li.first dt {
@@ -438,12 +440,6 @@ header .brand{
 #section-2 {
   padding: 7px 48px 71px 33px;
 }
-.img-box:after {
-  clear: both;
-  content: "";
-  display: block;
-  width: 100%;
-}
 .img-paraloid {
   text-align: center;
   padding: 5px;
@@ -487,7 +483,6 @@ span.img-paraloid {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   min-height: 74px;
-  overflow: hidden;
 }
 .box-info span,
 .box-error span,
@@ -674,6 +669,9 @@ footer {
 .pretty_image:hover i {
   top: 40%;
   opacity: 0.9;
+}
+.indent_top {
+  padding-top: 8px;
 }
 /*======================= SCROLL TO TOP =======================*/
 #back-top {
