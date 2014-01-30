@@ -7,7 +7,12 @@
   		  prevText: "",
   		  nextText: "",
   		  controlNav: true,
-  		}) 			
+  		}) 
+
+
+      // current year
+      var date = new Date();
+      $("#date").html(date.getFullYear());
 
   // hide #back-top first
   $("#back-top").hide();
@@ -96,9 +101,16 @@
           $(".act_item").removeClass("act_item");
           $(".open_item").removeClass("open_item");
           for(var i=0, lenghtArray = idArray.length; i<lenghtArray; i++){
-            if($(idArray[i]).offset().top-$(window).scrollTop()<=(($(window).height()/2)-100) && $(idArray[i]).offset().top-$(window).scrollTop()>=0 || $(window).scrollTop()+(($(window).height()/2)-100)>$(idArray[i]).offset().top && $(idArray[i]).offset().top+$(idArray[i]).height()>$(window).scrollTop()+(($(window).height()/2))){
-              $("a[href="+idArray[i]+"]").parent("li").addClass("current");
-              $("a[href="+idArray[i]+"]").parents("li").addClass("act_item open_item");
+
+
+            if(
+              $(idArray[i]).offset().top- $(window).scrollTop() <= (($(window).height()/2)-100) && 
+              $(idArray[i]).offset().top- $(window).scrollTop()>=0 || 
+              $(window).scrollTop() + (($(window).height()/2)-100) > $(idArray[i]).offset().top&& 
+              $(idArray[i]).offset().top+ $(idArray[i]).height() > $(window).scrollTop() + (($(window).height()/2)))
+            {
+                $("a[href="+idArray[i]+"]").parent("li").addClass("current");
+                $("a[href="+idArray[i]+"]").parents("li").addClass("act_item open_item");
             }
           }
           $(".act_item").find("dd").slideDown(200);
