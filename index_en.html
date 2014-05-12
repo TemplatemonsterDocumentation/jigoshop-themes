@@ -175,10 +175,11 @@
                           <li><a href="#blog_option">Blog</a></li>    
                           <li><a href="#portfolio_option">Portfolio</a></li>  
                           <li><a href="#footer_option">Footer</a></li>
-                          <li><a href="#shop_option">Shop options</a></li>  
-                          <li><a href="#footer_logo_option">Footer Logo</a></li>                  
+                          
+                          <li><a href="#footer_logo_option">Footer Logo</a></li> 
+                          <li><a href="#shop_option">Shop options</a></li>                   
                           <li><a href="#contacts_option">Contacts</a></li>                  
-                          <li><a href="#social_option">Social</a></li>                     
+                          <!-- <li><a href="#social_option">Social</a></li>   -->                     
                          </ul> 
                       </dd>
                      </dl> 
@@ -467,6 +468,9 @@
     <article>
       <h4 id="theme_sample_data">Sample Data Install</h4>
       <p>To make your WordPress website look like our live demo, please follow the instructions below. We also suggest you always have a backup .sql file <a target="_blank" href="/help/phpmyadmin-how-to-backup-a-database.html">exported</a> from your database.</p>
+      
+      <div class="box-info"><span>NOTE: For templates built on Cherry Framework v3.0 or earlier to install Sample data you need to upload XML and JSON files from "sample_data" directory. Images and other media files should be uploaded from "manual_install\uploads" directory. Make sure to upload all images form all subdirectories. </span></div>
+      
       <ol>
         <li>Go to the menu <strong>Cherry Plugin &gt; Import Content.</strong></li>
         <li>First of all you may see requirements table that shows if you hosting server meets Cherry Plugin requirements. Please contact your hosting provider if there are any warnings.
@@ -1015,10 +1019,17 @@
         <div class="span5"><p><span class="label">Description:</span> compact display of different posts in mini-slider view.</p></div>
       </div>
       <br>
-      <h5>Carousel</h5>
+      <h5>Carousel(Elasti)</h5>
       <figure class="img-paraloid"><img src="img/wordpress/shortcode_car.jpg" alt=""></figure>
       <div class="row-fluid">
         <div class="span7"><pre class="prettyprint">[carousel num="5" type="blog" thumb="true" thumb_width="120" thumb_height="50" date="yes" author="yes" min_items="3"]</pre></div>
+        <div class="span5"><p><span class="label">Description:</span> displays the posts in carousel view, has various additional options.</p></div>
+      </div>
+      <br>
+      <h5>Carousel(OWL)</h5>
+      <figure class="img-paraloid"><img src="img/wordpress/shortcode_car_owl.jpg" alt=""></figure>
+      <div class="row-fluid">
+        <div class="span7"><pre class="prettyprint">[carousel_owl title="Title" post_type="blog" posts_count="5" visibility_items="3" thumb="yes" thumb_width="200" thumb_height="200" date="yes" author="yes" comments="no" excerpt_count="10" display_navs="yes" display_pagination="yes"]</pre></div>
         <div class="span5"><p><span class="label">Description:</span> displays the posts in carousel view, has various additional options.</p></div>
       </div>
       <br>
@@ -1095,6 +1106,16 @@
 [span4] Your content... [/span4]
 [/row]</pre></div>
         <div class="span6"><p>Multiple Columns shortcodes are used to simplify content forming by inserting the most common grid variants.</p></div>
+      </div>
+      <br>
+            <h5>Custom classes</h5>
+      <div class="row-fluid">
+        <div class="span6"><pre class="prettyprint">
+[row custom_class="custom-row"]
+[span8 custom_class="custom-span8"] content [/span8]
+[span4 custom_class="custom-span4"] content [/span4]
+[/row]</pre></div>
+        <div class="span6"><p>You can also add custom classes to Columns category shortcodes. This expands customization options for specific blocks. </p></div>
       </div>
       <br>
     </article>
@@ -1313,21 +1334,21 @@
         </pre>
         <p><span class="label">Description:</span> used to display Pricing tables.</p>
        <br>
-    <h5>Audio / Video</h5>
+       <h5>Audio / Video</h5>
     <p><span class="label">Description:</span> WordPress 3.6+ has great support for embedding YouTube and Vimeo videos, but if you want to play a video or audio file, like an MP3 or MP4 file, that has been uploaded to a server, you need to implement some kind of player so that the file would appear as media rather than a link on your site. <a href="http://make.wordpress.org/core/2013/04/08/audio-video-support-in-core/" target="_blank">Read More</a></p>
     The process is similar to inserting an image into your post content:
     <ol class="clearfix">
       <li>Add or edit a page or post.</li>
       <li>
         <span>Click in your content where you want the player to appear, then hit <strong style="color:#666">Add Media</strong> above the content editor.</span>
-        <figure class="img-paraloid pull-left"><img src="img/audio_video_1.jpg" height="35" width="107" alt=""></figure>
+        <figure class="img-paraloid"><img src="img/audio_video_1.jpg" height="35" width="107" alt=""></figure>
         <div class="clear"></div>
       </li>
       <li>Click <strong>Upload Files</strong>.</li>
       <li>Upload an audio or video file.</li>
       <li>
         <span>Make sure the file you uploaded is selected, then under <em>Attachment Display Settings</em>, set <em>Embed or Link</em> to &quot;Embed Media Player.&quot;</span>
-        <figure class="img-paraloid pull-left"><img src="img/audio_video_2.jpg" height="92" width="268" alt=""></figure>
+        <figure class="img-paraloid"><img src="img/audio_video_2.jpg" height="92" width="268" alt=""></figure>
         <div class="clear"></div>
       </li>
       <li>Click <strong>Insert into page</strong>.</li>
@@ -1460,19 +1481,7 @@
 	        </ul>
         </div>
       </div>
-      <br />
-      <div class="row"> 
-        <figure class="img-paraloid pull-left"><img src="img/wordpress/widget_twitter.jpg" alt=""></figure>
-        <div class="clearfix">
-	        <h5>Cherry - Twitter</h5>
-	        <p>This widget allows you to display the latest tweets from your twitter account. The widget contains the following options:</p>
-	        <ul>
-	          <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
-	          <li><i class="icon-angle-right"></i> <strong>Twitter Name:</strong> - your twitter name</li>
-	          <li><i class="icon-angle-right"></i> <strong>Tweets number:</strong> - the number of tweets to show.</li>
-	        </ul>
-        </div>
-      </div>
+
       <br />
       <div class="row"> 
         <figure class="img-paraloid pull-left"><img src="img/wordpress/widget_flickr.jpg" alt=""></figure>
@@ -1529,6 +1538,62 @@
             <li><i class="icon-angle-right"></i> <strong>Pagination:</strong> - display slider pagination</li>
 	          <li><i class="icon-angle-right"></i> <strong>Custom CSS class: </strong> - widget custom class</li>
 	        </ul>
+        </div>
+      </div>
+      <br />
+      <div class="row"> 
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/widget_cherry_banner.jpg" alt=""></figure>
+        <div class="clearfix">
+          <h5>Cherry - Banner</h5>
+          <p>Widgetclass="icon-angle-right"></i> <strong>Title (optional):</strong> - Widget Title</li> is used to display banner. It contains the following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Title (optional):</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>Banner description:</strong> - Widget Banner description</li>
+            <li><i class="icon-angle-right"></i> <strong>Image URL:</strong> - Background source image</li>
+            <li><i class="icon-angle-right"></i> <strong>Fill image:</strong> - Option for switching between two banner display options: resizing image to make it fit banner dimensions as a background or putting image above banner content</li>
+            <li><i class="icon-angle-right"></i> <strong>Link URL: </strong> - link URL</li>
+            <li><i class="icon-angle-right"></i> <strong>Custom CSS class: </strong> - widget custom class</li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="row"> 
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/widget_facebook_like_box.jpg" alt=""></figure>
+        <div class="clearfix">
+          <h5>Cherry - Facebook Like Box Widget</h5>
+          <p>This widget is used to display Facbook pages. It contains the following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Title (optional):</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>Facebook page url:</strong> - url your <a href="https://www.facebook.com/help/174987089221178/">Facebook Page</a></li>
+            <li><i class="icon-angle-right"></i> <strong>Width: & Height:</strong> - Widget size</li>
+            <li><i class="icon-angle-right"></i> <strong>Color Scheme:</strong> - Color Scheme(Light/Dark)</li>
+            <li><i class="icon-angle-right"></i> <strong>Display header:</strong> - enable/disable header</li>
+            <li><i class="icon-angle-right"></i> <strong>Display faces:</strong> - enable/disable faces</li>
+            <li><i class="icon-angle-right"></i> <strong>Display stream:</strong> - enable/disable stream</li>
+            <li><i class="icon-angle-right"></i> <strong>Display border:</strong> - enable/disable border</li>
+            <li><i class="icon-angle-right"></i> <strong>Custom CSS class: </strong> - widget custom class</li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="row"> 
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/widget_cherry_instagram.jpg" alt=""></figure>
+        <div class="clearfix">
+          <h5>Cherry - Instagram</h5>
+          <p>Widget is used to display recent Instagram posts. It contains the following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Widget Title: (optional):</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>User Name: (required field)</strong> - Instagram User Name(Widget will work only for users who have full rights opened in Instagram account.)</li>
+            <li><i class="icon-angle-right"></i> <strong>Number of displayed images: </strong> - Number of displayed images(Max value: 20 images.)</li>
+            <li><i class="icon-angle-right"></i> <strong>Image dimensions:</strong> - the size of the displayed image(Large/Thumbnail)</li>
+            <li><i class="icon-angle-right"></i> <strong>Show image description:</strong> - enable/disable image description</li>
+            <li><i class="icon-angle-right"></i> <strong>Show comments number:</strong> - enable/disable comments number</li>
+            <li><i class="icon-angle-right"></i> <strong>Show likes number:</strong> - enable/disable likes number</li>
+            <li><i class="icon-angle-right"></i> <strong>Show image publication date:</strong> - enable/disable image publication date</li>
+            <li><i class="icon-angle-right"></i> <strong>Show Image URL:</strong> - enable/disable Image URL</li>
+            <li><i class="icon-angle-right"></i> <strong>User account button text: </strong> - text profile link Instagram</li>
+            <li><i class="icon-angle-right"></i> <strong>Custom CSS class: </strong> - widget custom class</li>
+          </ul>
         </div>
       </div>
     </article>
@@ -1623,15 +1688,18 @@
         <li><i class="icon-angle-right"></i> <strong>Delay</strong> - delay in milliseconds that defines when the menu hides</li>
         <li><i class="icon-angle-right"></i> <strong>Fade-in animation</strong> - enable/disable the fade-in animation</li>
         <li><i class="icon-angle-right"></i> <strong>Slide-down animation</strong> - enable/disable the slide animation</li>
-        <li><i class="icon-angle-right"></i> <strong>Speed</strong> - the speed of the submenu expanding</li>
-        <li><i class="icon-angle-right"></i> <strong>Arrows markup</strong> - enable/disable  arrows for the menu items that have submenus</li>
+        <li><i class="icon-angle-right"></i> <strong>Speed</strong> - the speed of the sub-menu expanding</li>
+        <li><i class="icon-angle-right"></i> <strong>Arrows markup</strong> - enable/disable  arrows for the menu items that have sub-menus</li>
         <li><i class="icon-angle-right"></i> <strong>Mobile menu label</strong> - This text is visible in mobile select menu.</li>
+        <li><i class="icon-angle-right"></i> <strong>Use stickUp menu</strong> - Enable this option if you want to use stickUp menu.</li>
       </ul>
       </div>
       </div>
     </article>
-    <article id="slider_option">
+       <article id="slider_option">
       <h4>Slider</h4>
+      <p>Slider height can be defined in <b>"wp-content/themes/theme###/slider.php"</b>. Edit "height" value in $slider_default_params array.</p>
+
       <h5>Disable Slider</h5>
       <div class="row"> 
         <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_slider_none.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_slider_none.jpg" alt=""><i class="icon-search"></i></a></figure>
@@ -1639,24 +1707,61 @@
       </div>
       <h5>Slideshow</h5>
       <div class="row"> 
-      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_slider_camera.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_slider_camera.jpg" alt=""><i class="icon-search"></i></a></figure>
-      <div class="clearfix">
-      <ul>
-        <li><i class="icon-angle-right"></i> <strong>Sliding effect</strong> - slider transition effect</li>
-        <li><i class="icon-angle-right"></i> <strong>Number of columns</strong> - number of columns</li>
-        <li><i class="icon-angle-right"></i> <strong>Number of rows</strong> - number of rows</li>
-        <li><i class="icon-angle-right"></i> <strong>Banner effect</strong> - select your banner animation type</li>
-        <li><i class="icon-angle-right"></i> <strong>Pause time</strong> - pause time (ms)</li>
-        <li><i class="icon-angle-right"></i> <strong>Animation speed</strong> - animation speed (ms)</li>
-        <li><i class="icon-angle-right"></i> <strong>Slideshow</strong> - Animate slider automatically?</li>
-        <li><i class="icon-angle-right"></i> <strong>Thumbnails</strong> - Display thumbnails?</li>
-        <li><i class="icon-angle-right"></i> <strong>Pagination</strong> - Display pagination?</li>
-        <li><i class="icon-angle-right"></i> <strong>Next &amp; Prev navigation</strong> - Display next & prev navigation?</li>
-        <li><i class="icon-angle-right"></i> <strong>Display next &amp; prev navigation only on hover?</strong> - If 'yes,' the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if 'no,' they will always be visible.</li>
-        <li><i class="icon-angle-right"></i> <strong>Play/Pause button</strong> - Display Play/Pause button?</li>
-        <li><i class="icon-angle-right"></i> <strong>Loader</strong> - slider loader.</li>
-      </ul>
+        <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_slider_camera.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_slider_camera.jpg" alt=""><i class="icon-search"></i></a></figure>
+        <div class="clearfix">
+        <ul>
+          <li><i class="icon-angle-right"></i> <strong>Sliding effect</strong> - slider transition effect</li>
+          <li><i class="icon-angle-right"></i> <strong>Sort by parameter</strong> - sort retrieved posts by parameter (order by)</li>
+          <li><i class="icon-angle-right"></i> <strong>Sort order</strong> - sort order for posts</li>
+          <li><i class="icon-angle-right"></i> <strong>Sliding effect</strong> - select your animation type.</li>
+          <li><i class="icon-angle-right"></i> <strong>Number of columns</strong> - number of columns</li>
+          <li><i class="icon-angle-right"></i> <strong>Number of rows</strong> - number of rows</li>
+          <li><i class="icon-angle-right"></i> <strong>Banner effect</strong> - select your banner animation type</li>
+          <li><i class="icon-angle-right"></i> <strong>Pause time</strong> - pause time (ms)</li>
+          <li><i class="icon-angle-right"></i> <strong>Animation speed</strong> - animation speed (ms)</li>
+          <li><i class="icon-angle-right"></i> <strong>Slideshow</strong> - Animate slider automatically?</li>
+          <li><i class="icon-angle-right"></i> <strong>Thumbnails</strong> - Display thumbnails?</li>
+          <li><i class="icon-angle-right"></i> <strong>Pagination</strong> - Display pagination?</li>
+          <li><i class="icon-angle-right"></i> <strong>Next &amp; Prev navigation</strong> - Display next & prev navigation?</li>
+          <li><i class="icon-angle-right"></i> <strong>Display next &amp; prev navigation only on hover?</strong> - If 'yes,' the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if 'no,' they will always be visible.</li>
+          <li><i class="icon-angle-right"></i> <strong>Play/Pause button</strong> - Display Play/Pause button?</li>
+          <li><i class="icon-angle-right"></i> <strong>Loader</strong> - slider loader.</li>
+        </ul>
+        </div>
       </div>
+    </article>
+    <article id="slider_option">
+      <h4>Slider</h4>
+      <p>Slider height can be defined in <b>"wp-content/themes/theme###/slider.php"</b>. Edit "height" value in $slider_default_params array.</p>
+
+      <h5>Disable Slider</h5>
+      <div class="row"> 
+        <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_slider_none.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_slider_none.jpg" alt=""><i class="icon-search"></i></a></figure>
+        <p>You can switch off the slider.</p>
+      </div>
+      <h5>Slideshow</h5>
+      <div class="row"> 
+        <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_slider_camera.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_slider_camera.jpg" alt=""><i class="icon-search"></i></a></figure>
+        <div class="clearfix">
+        <ul>
+          <li><i class="icon-angle-right"></i> <strong>Sliding effect</strong> - slider transition effect</li>
+          <li><i class="icon-angle-right"></i> <strong>Sort by parameter</strong> - sort retrieved posts by parameter (order by)</li>
+          <li><i class="icon-angle-right"></i> <strong>Sort order</strong> - sort order for posts</li>
+          <li><i class="icon-angle-right"></i> <strong>Sliding effect</strong> - select your animation type.</li>
+          <li><i class="icon-angle-right"></i> <strong>Number of columns</strong> - number of columns</li>
+          <li><i class="icon-angle-right"></i> <strong>Number of rows</strong> - number of rows</li>
+          <li><i class="icon-angle-right"></i> <strong>Banner effect</strong> - select your banner animation type</li>
+          <li><i class="icon-angle-right"></i> <strong>Pause time</strong> - pause time (ms)</li>
+          <li><i class="icon-angle-right"></i> <strong>Animation speed</strong> - animation speed (ms)</li>
+          <li><i class="icon-angle-right"></i> <strong>Slideshow</strong> - Animate slider automatically?</li>
+          <li><i class="icon-angle-right"></i> <strong>Thumbnails</strong> - Display thumbnails?</li>
+          <li><i class="icon-angle-right"></i> <strong>Pagination</strong> - Display pagination?</li>
+          <li><i class="icon-angle-right"></i> <strong>Next &amp; Prev navigation</strong> - Display next & prev navigation?</li>
+          <li><i class="icon-angle-right"></i> <strong>Display next &amp; prev navigation only on hover?</strong> - If 'yes,' the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if 'no,' they will always be visible.</li>
+          <li><i class="icon-angle-right"></i> <strong>Play/Pause button</strong> - Display Play/Pause button?</li>
+          <li><i class="icon-angle-right"></i> <strong>Loader</strong> - slider loader.</li>
+        </ul>
+        </div>
       </div>
       <h5>Accordion</h5>
       <div class="row"> 
@@ -1664,6 +1769,8 @@
       <div class="clearfix">
       <ul>
         <li><i class="icon-angle-right"></i> <strong>Slides to display</strong> - Select the slides that you want to be displayed on the slider. If no slide is selected, all slides will be displayed.</li>
+        <li><i class="icon-angle-right"></i> <strong>Sort by parameter</strong> - sort retrieved posts by parameter (order by)</li>
+      <li><i class="icon-angle-right"></i> <strong>Sort order</strong> - sort order for posts</li>
         <li><i class="icon-angle-right"></i> <strong>Slideshow</strong> - Animate slider automatically?</li>
         <li><i class="icon-angle-right"></i> <strong>Pause on mouseover</strong> - The auto play will pause when you mouse over the slider.</li>
         <li><i class="icon-angle-right"></i> <strong>Pause time</strong> - pause time (ms).</li>
@@ -1683,11 +1790,13 @@
       <ul>
         <li><i class="icon-angle-right"></i> <strong>Blog Title</strong> - your Blog Title used on the Blog page</li>
         <li><i class="icon-angle-right"></i> <strong>Related Posts Title</strong> - your title used on Single Post page for related posts</li>
-        <li><i class="icon-angle-right"></i> <strong>Sidebar position</strong> - you can select the position for the sidebar (right or left)</li>
+        <li><i class="icon-angle-right"></i> <strong>Blog layout</strong> - choose blog layout</li>
         <li><i class="icon-angle-right"></i> <strong>Blog image size</strong> - the image size (Normal size or Large size) for the Blog page</li>
         <li><i class="icon-angle-right"></i> <strong>Single post image size</strong> - the image size (Normal size or Large size) for the single post page</li>
-        <li><i class="icon-angle-right"></i> <strong>Enable Meta for blog posts?</strong> - display meta for posts</li>
+        <li><i class="icon-angle-right"></i> <strong>Display share button in single post?</strong> - display share button in single post</li>
+        <li><i class="icon-angle-right"></i> <strong>Should images be uploaded on page scroll?</strong> - you can enable images load only as you scroll down the page. Otherwise images will load all at once.</li>
         <li><i class="icon-angle-right"></i> <strong>Enable excerpt for blog posts?</strong> - display excerpt for posts</li>
+        <li><i class="icon-angle-right"></i> <strong>Button text for blog posts.</strong> - button text for blog posts</li>
         <li><i class="icon-angle-right"></i> <strong>View meta of the blog</strong> - select the meta block type which will be displayed on the blog and post pages</li>
         <li><i class="icon-angle-right"></i> <strong>Post publication date</strong> - Should the post publication date be displayed?</li>
         <li><i class="icon-angle-right"></i> <strong>Author of the post</strong> - Display the author of the post?</li>
@@ -1746,7 +1855,16 @@
       </div>
       </div>
     </article>
-
+     <article id="footer_logo_option">
+      <p class="alert">The sections 'footer logo,' 'contacts' and 'social' below are optional. Some themes may not include them. </p>
+      <h4>Footer Logo</h4>
+      <div class="row"> 
+      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_footer_logo.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_footer_logo.jpg" alt=""><i class="icon-search"></i></a></figure>
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Logo Image Path</strong> - with Image logo selected, you can upload the new image thorugh the 'upload' feature or use any picture from the Media Library.</li>
+      </ul>
+      </div>
+    </article>
 
      <article id="shop_option">
       <h4>Shop Options</h4>
@@ -1754,6 +1872,8 @@
       <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_shop.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_shop.jpg" alt=""><i class="icon-search"></i></a></figure>
       <div class="clearfix">
       <ul>
+        <li><i class="icon-angle-right"></i> <strong>Empty cart message</strong> - Default message for empty cart in Cart widget in header</li>
+        <li><i class="icon-angle-right"></i> <strong>Products per page</strong> - Number of producrs per catalog page</li>
         <li><i class="icon-angle-right"></i> <strong>Product title length limit</strong> - max number of words, which will shown in product title on catalog page (leave empty for displaying full title)</li>
         <li><i class="icon-angle-right"></i> <strong>Product description</strong> - Show/hide product description on catalog page</li>
         <li><i class="icon-angle-right"></i> <strong>Show details button on catalog page</strong> - Show/hide product details button on catalog page</li>
@@ -1764,18 +1884,6 @@
         <li><i class="icon-angle-right"></i> <strong>Authentication link (login)</strong> - Authentication (login) link title</li>
       </ul>
       </div>
-      </div>
-    </article>
-
-    <p class="alert">The sections 'footer logo,' 'contacts' and 'social' below are optional. Some themes may not include them. </p>
-
-    <article id="footer_logo_option">
-      <h4>Footer Logo</h4>
-      <div class="row"> 
-      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_footer_logo.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_footer_logo.jpg" alt=""><i class="icon-search"></i></a></figure>
-      <ul>
-        <li><i class="icon-angle-right"></i> <strong>Logo Image Path</strong> - with Image logo selected, you can upload the new image thorugh the 'upload' feature or use any picture from the Media Library.</li>
-      </ul>
       </div>
     </article>
 
@@ -1792,7 +1900,7 @@
       </div>
     </article>
     
-    <article id="social_option">
+    <!--<article id="social_option">
       <h4>Social</h4>
       <div class="row"> 
       <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_social.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_social.jpg" alt=""><i class="icon-search"></i></a></figure>
@@ -1804,7 +1912,7 @@
         <li><i class="icon-angle-right"></i> <strong>Linkedin URL</strong> - Linkedin URL.</li>
       </ul>
       </div>
-    </article>
+    </article>-->
 
   </section>  
 <!-- Theme Options end -->
