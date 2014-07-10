@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="css/style.css" media="screen">
   <link rel="stylesheet" href="css/flexslider.css"  media="screen">
   <link rel="stylesheet" href="css/prettify.css"  media="screen">
-  <link rel="stylesheet" href="css/prettyPhoto.css"  media="screen">
-  <link rel="canonical" href="http://www.templatemonster.com/help/quick-start-guide/jigoshop-themes/master/index_en.html"/>
+   <link rel="stylesheet" href="css/prettyPhoto.css"  media="screen">
+   <link rel="canonical" href="http://www.templatemonster.com/help/quick-start-guide/jigoshop-themes/v3-1/index_en.html"/>
   <script src="js/jquery.js"></script>
   <script src="js/jquery.scrollTo.js"></script>
   <script src="js/jquery-migrate-1.1.0.js"></script>
@@ -33,29 +33,28 @@
 </head>
 
 <body>  
-<!-- Cherry Version 3.1-->
+<!-- Cherry Version v3-1-->
 <!-- header
 ================================================== -->
 <header class="header">
   <div class="container">
   <div class="row">
   <article class="span3"><a class="brand" href="/help/" target="_blank"></a></article>
- <article class="span7">
- <h1>Cherry Jigoshop Documentation</h1>
+  <article class="span7">
+   <h1>Cherry Jigoshop Documentation</h1>
   </article>  
-  <!-- languages switcher
-   <article class="span2">
-    <div class="languages pull-right">
-      <span class="lang_label">Language: </span><div id="lang_icon"><b>En</b><i class="icon-angle-down"></i></div>
-      <ul id="lang_list">
-        <li class="active"><a href="index_en.html"><span>English </span><img src="img/flags/gb.png" height="14" width="22" alt="en"></a></li>
-        <li><a href="index_es.html"><span>Español </span><img src="img/flags/es.png" height="14" width="22" alt="es"></a></li>
-        <li><a href="index_de.html"><span>Deutsch </span><img src="img/flags/de.png" height="14" width="22" alt="de"></a></li>
-        <li><a href="index_ru.html"><span>Русский </span><img src="img/flags/ru.png" height="14" width="22" alt="ru"></a></li>
-      </ul>
-    </div>
-  </article>   
-   --> 
+    <article class="span2">
+
+       <div id="languages" class="select-menu pull-right">
+        <div class="select-menu_icon"><b>En</b><i class="icon-angle-down"></i></div>
+        <ul class="select-menu_list">
+          
+        </ul>
+      </div>
+ 
+
+    </article>   
+   
   </div>  	
   </div>
 </header>
@@ -87,21 +86,26 @@
                   </li>
                   <li class="nav-item item2">
                     <dl class="slide-down">
-                       <dt><a href="#prepare" class="icon-check">Prepare </a></dt>  
-                       <dd></dd>                       
+                       <dt><a href="#template_installation" class="icon-check special"><b>Template installation</b></a> <i class="icon-sample"></i></dt>  
+                       <dd><ul class="list">          
+                            <li><a href="#cherryframework_installation">Step 1. CherryFramework installation</a></li>
+                            <li><a href="#theme_installation">Step 2. Theme installation</a></li>                             
+                            <li><a href="#theme_sample_data">Step 3. Sample Data Installation</a></li>                          
+                           </ul> 
+                        </dd>      
                      </dl> 
                   </li>           
                   <li class="nav-item item3">
                     <dl class="slide-down">
                        <dt><a href="#getting_started" class="icon-play">Getting Started </a> <i class="icon-sample"></i></dt>
                          <dd>
-                           <ul class="list">          
-                            <li><a href="#engine_installation">Engine installation</a></li>
-                            <li><a href="#theme_installation">Theme installation</a></li>                            
-                            <li><a href="#theme_sample_data">Sample Data Install</a></li>
+                           <ul class="list">   
+                            <li><a href="#prepare">Preparation</a></li>      
+                            <li><a href="#engine_installation">Engine installation</a></li>                          
                             <li><a href="#manual_install">Manual installation</a></li>
                             <li><a href="#plugins_intstall">Plugin Installation</a></li>
                             <li><a href="#theme_plugins">Theme Plugins</a></li>
+                            <li><a href="#cookie_policy">Cookie Policy</a></li>
                            </ul> 
                        </dd>
                      </dl> 
@@ -172,15 +176,20 @@
                           <li><a href="#slider_option">Slider</a></li>    
                           <li><a href="#blog_option">Blog</a></li>    
                           <li><a href="#portfolio_option">Portfolio</a></li>  
-                          <li><a href="#footer_option">Footer</a></li>
-                          <li><a href="#shop_option">Shop options</a></li>  
+                          <li><a href="#footer_option">Footer</a></li>  
                           <li><a href="#footer_logo_option">Footer Logo</a></li>                  
-                          <li><a href="#contacts_option">Contacts</a></li>                  
-                          <li><a href="#social_option">Social</a></li>                     
+                          <li><a href="#contacts_option">Contacts</a></li>  
+                          <li><a href="#social_option">Social</a></li>   
+                          <li><a href="#shop_option">Shop options</a>   
+                            <ul class="list"> 
+                              <li><a href="#olark_live_chat">Olark live chat</a></li> 
+                            </ul>  
+                          </li>                
                          </ul> 
                       </dd>
                      </dl> 
                   </li> 
+
                 </ul>
             </div>
       </div> 
@@ -193,8 +202,8 @@
 <div class="box-content">
   <!-- block-started
   ================================================== -->
-  <section class="block-started"  id="introduction">
-    <h2><i class="icon-info-sign"></i> Introduction</h2>
+  <section class="block-started"  id="introduction" >
+    <h2 class="item1"><i class="icon-info-sign"></i> Introduction</h2>
     <p>Thank you for purchasing a WordPress template. This documentation consists of several parts and shows you the entire process of setting up and administering a WordPress Website from scratch.</p>
     
     <div id="wordpress_cms_desc">
@@ -212,21 +221,21 @@
       <p>The template package you have downloaded consists of several folders. Let's see what each folder contains:</p>
       <ul class="files_structure">
 
-        <li class="folder"><i class="icon-folder-close"></i> <b>Documentation</b><small class="muted"> - contains documentation files.</small>
+        <li class="folder"><i class="icon-folder-close"></i> <b>documentation</b><small class="muted"> - contains documentation files.</small>
           <ul>
-            <li class="file"><i class="icon-file"></i> template_instructions.html<small class="muted"> - the main documentation file. You are right here :)</small></li>
+            <li class="file"><i class="icon-file"></i> documentation.html<small class="muted"> - the main documentation file. You are right here :)</small></li>
           </ul>
         </li>
 
-        <li class="folder"><b>Screenshots</b><small class="muted"> - contains template screenshots. Not for production.</small></li>
+        <li class="folder"><b>screenshots</b><small class="muted"> - contains template screenshots. Not for production.</small></li>
 
-        <li class="folder"><b>Sources</b><small class="muted"> - contains template source files.</small>
+        <li class="folder"><b>sources.zip</b><small class="muted"> - contains template source files.</small>
           <ul>
             <li class="folder"><i class="icon-folder-close"></i> psd<small class="muted"> - template Adobe Photoshop source files (.psd).</small></li>
           </ul>
         </li>
 
-        <li class="folder"><i class="icon-folder-close"></i> <b>Theme</b><small class="muted"> - contains WordPress theme files.</small>
+        <li class="folder"><i class="icon-folder-close"></i> <b>theme</b><small class="muted"> - contains WordPress theme files.</small>
           <ul>
             <li class="file"><i class="icon-file"></i> CherryFramework.zip<small class="muted"> - Cherry Framework theme archive. Contains all theme files. Should be installed through WordPress  extension manager.</small></li>
             <li class="file"><i class="icon-file"></i> theme####.zip<small class="muted"> - theme(child-theme) archive. Contains all theme files. Should be installed through WordPress extension manager.</small></li>
@@ -242,22 +251,109 @@
                 <li class="file"><i class="icon-folder-close"></i> uploads<small class="muted"> - contains theme images.</small></li>
                 <li class="file"><i class="icon-file"></i> theme#####.sql<small class="muted"> - database backup file (contains theme content).</small></li>
               </ul>
-            </li>
-            <li class="file"><i class="icon-file"></i> license.txt<small class="muted"> - contains license details.</small></li>
+            </li>           
           </ul>
         </li>
-
+        <li class="file"><i class="icon-file"></i> license.txt<small class="muted"> - contains license details.</small></li>
         <li class="file"><i class="icon-file"></i> fonts_info.txt<small class="muted"> - contains links where the template custom fonts can be downloaded.</small></li>
         <li class="file"><i class="icon-file"></i> info.txt<small class="muted"> - contains instructions on how to extract source files.</small></li>
       </ul>
     </div>
   </section>
-  <!-- prepare started --> 
-  <section class="block-templates" id="prepare">  
-    <h2><i class="icon-check"></i> Prepare</h2>
+  
+  <!-- template_installation started --> 
+  <section class="block-templates" id="template_installation">   
+     
+  
+    <h2 class="item2"><i class="icon-check"></i> Template installation</h2>
+    
+    <p>Template installation has never been easier. The installation process includes only three simple steps: Cherry framework installation, child theme installation and sample data installation.</p>
+     <p>All installation steps can be done within WordPress interface. It makes process comfortable and fast.</p>
+     
+      <p>You can verify this by clicking on the link below:</p>
+     <figure class="img-paraloid quick-start-guide"><a href="/help/quick-start-guide/wordpress-themes/master/quick_guide/index.html" target="_blank" ><img src="img/wordpress/banner2.jpg" alt=""></a></figure>
+    
+    <!-- CherryFramework installation -->
+
+    <article id="cherryframework_installation">
+      <h4>Step 1. CherryFramework installation</h4>
+       
+  
+       
+        <ol style="margin-bottom:.5em;">
+          <li>Log in to your WordPress admin panel (add /wp-admin to your domain name in the browser address bar).</li>                                             
+          <li>Go to the menu <strong>Appearance</strong> > <strong>Themes</strong> and click the <strong>Add New Theme </strong>button.</li>
+          <li>Click the <strong>Upload</strong> link.</li>
+          <li>Click the <strong>Browse</strong> button and navigate to the unzipped template package on your computer.</li>
+          <li>Look for a file called  <strong>CherryFramework.zip</strong>. Click on it to select, then click <strong>OK</strong>.</li>
+          <li>Click the <strong>Install Now</strong> button and wait until the installation is complete.</li>
+          <li>Click the <strong>Activate</strong> theme link.</li>
+        </ol>
+
+     
+      <p class="muted text-center"></p>
+
+        <p>For more information, feel free to check the detailed video tutorial on <!--<a target="_blank" href="/help/how-install-wordpress-theme-via-admin-panel.html">How to install a WordPress theme via admin panel</a> and--> <a target="_blank" href="/help/wordpress-how-to-install-cherry-framework-template-starting-with-version-3-1.html">How to install Cherry framework template</a>.</p>
+        <p>Congratulations, you have just installed the framework.</p> 
+    </article>    
+        <!-- Theme installation -->
+
+    <article id="theme_installation">
+      <h4>Step 2. Theme installation</h4>
+        <p>Now you can proceed to installing  the child theme: <strong>theme####.zip</strong>. The steps are the same:</p>
+        <ol style="margin-bottom:.5em;">
+          <li>Go to the menu <strong>Appearance</strong> > <strong>Themes</strong> and click the <strong>Add New Theme </strong>button.</li>
+          <li>Click the <strong>Upload</strong> link.</li>
+          <li>Click the <strong>Browse</strong> button and navigate to the unzipped template package on your computer.</li>
+          <li>Look for a file called <strong>theme####.zip </strong>(where <strong>XXXX</strong> is the unique number of your theme). Click on it to select, then click <strong>OK</strong>.</li>
+          <li>Click the <strong>Install Now</strong> button and wait until the installation is complete.</li>
+          <li>Click the <strong>Activate</strong> link to change the current layout of the site to the theme your purchased.</li>
+        </ol>
+
+      
+      <p class="muted text-center"></p>
+
+        <p>Congratulations, both the framework and theme have been successfully installed!</p>
+        
+    </article>
+
+    <article  id="theme_sample_data">
+      <h4>Step 3. Sample Data Installation</h4>
+      <p>To make your WordPress website look like our live demo, please follow the instructions below. We also suggest you always have a backup .sql file <a target="_blank" href="/help/phpmyadmin-how-to-backup-a-database.html">exported</a> from your database.</p>
+
+      <div class="box-info"><span>NOTE: For templates built on Cherry Framework v3.0 or earlier to install Sample data you need to upload XML and JSON files from "sample_data" directory. Images and other media files should be uploaded from "manual_install\uploads" directory. Make sure to upload all images form all subdirectories. </span></div>
+
+      <ol>
+        <li>Go to the menu <strong>Cherry Plugin &gt; Import Content.</strong></li>
+        <li>First of all you may see requirements table that shows if you hosting server meets Cherry Plugin requirements. Please contact your hosting provider if there are any warnings.
+        <figure class="img-paraloid"><img src="img/wordpress/import_1st_step.png" alt=""></figure></li>
+        <li>If all server settings are OK you'll see uploading screen. Open <b>"theme/sample_data"</b> directory from the template package and upload all files to WordPress. You can upload all files selecting them in the <b>"theme/sample_data"</b> directory (CTRL+A or Command+A) and dragging them to the uploading area.
+        <figure class="img-paraloid"><img src="img/wordpress/import_2nd_step.png" alt=""></figure></li>
+        <li>Make sure to upload all files from the sample_data directory including .JSON and .XML files. When upload is done click "Continue Install" button to proceed. <br><br>
+        <div class="box-notification"><span>ATTENTION: .JSON and .XML are required to proceed with the sample data installation. Continue Install button will be available only in case both .XML and .JSON files have been uploaded.</span></div>
+        <figure class="img-paraloid"><img src="img/wordpress/import_3d_step.png" alt=""></figure></li>
+        <li>Clicking "Continue Install" button will activate sample data installation process. Installation steps may take some time depending on your server settings. Please be patient.
+        <figure class="img-paraloid"><img src="img/wordpress/import_4th_step.png" alt=""></figure></li>
+        <li><span><strong>Congratulations!</strong> You have successfully installed your Cherry WordPress Theme. You can look at the theme now.</span>
+        <figure class="img-paraloid"><img src="img/wordpress/import_5th_step.png" alt=""></figure>
+        </li>
+      </ol>      
+    </article>
+  </section>
+
+
+<!-- Getting started --> 
+  <section class="block-templates" id="getting_started">  
+
+    <h2 class="item3"><i class="icon-play"></i> Getting Started</h2>
+<!-- prepare started --> 
+   
+
+    <article  id="prepare">
+      <h4>Preparation</h4>
     <p>Before you proceed to setting up your WordPress website, please make sure you are fully prepared. Please complete the following preparation steps:</p>
 
-    <div id="software">
+
       <h4>Editing software</h4>
       <p>To feel comfortable working with your WordPress template, we recommend that you download all applications required. You can see the list of required software on the template preview page. <br>Requirements may vary depending on the template, we're going to tell you in general what’s needed:</p>
 
@@ -267,32 +363,21 @@
         <li>To edit the template source code files, you need some code editor like Adobe Dreamweaver, Notepad++, Sublime Text, etc.</li>
         <li>To upload files to the hosting server, you may need an FTP Manager like Total Commander, FileZilla, CuteFTP, etc.</li>
       </ol>
-    </div>
 
-    <div id="hosting">
       <h4>Hosting</h4>
       <p>As WordPress CMS is a PHP/MySQL based application, you need to prepare a hosting environment to run WordPress.</p>
       <p>If you have a live hosting, please make sure it matches <a href="http://wordpress.org/about/requirements/" target="_blank">WordPress software requirements</a> and is ready to be used for WordPress websites.</p>
       <p>Otherwise, you can run WordPress locally on your computer using the local server. To create a local hosting server, please use the localhost applications, such as <b>WAMP</b>, <b>AppServ</b>, <b>MAMP</b>, etc. Any of those can be easily installed as any other program and used to run WordPress. </p>
       <p>Please check the tutorials below on how to configure a local development environment:</p>
-      <ul class="unstyled">
-        <li><i class="icon-film"> </i><a target="_blank" href="/help/how-to-install-appserv-web-development-environment.html">How to install AppServ web development environment</a></li>
-        <li><i class="icon-film"> </i><a target="_blank" href="/help/how-to-install-wamp-web-development-environment.html">How to install WAMP web development environment</a></li>
-        <li><i class="icon-film"> </i><a target="_blank" href="/help/how-to-install-xamp-web-development-environment.html">How to install XAMP web development environment</a></li>
+      <ul class="list-2">
+        <li><i class="icon-play-circle "></i> <a target="_blank" href="/help/how-to-install-appserv-web-development-environment.html">How to install AppServ web development environment</a></li>
+        <li><i class="icon-play-circle "></i> <a target="_blank" href="/help/how-to-install-wamp-web-development-environment.html">How to install WAMP web development environment</a></li>
+        <li><i class="icon-play-circle "></i> <a target="_blank" href="/help/how-to-install-xamp-web-development-environment.html">How to install XAMP web development environment</a></li>
       </ul>
-    </div>
-  </section>
-<!-- prepare started --> 
-
-<!-- Getting started --> 
-  <section class="block-templates" id="getting_started">  
-
-    <h2><i class="icon-play"></i> Getting Started</h2>
-
-    <!-- Engine installation -->
-
-    <article >
-      <h4 id="engine_installation">Engine installation</h4>
+    </article>
+     <!-- Engine installation -->
+    <article id="engine_installation">
+      <h4>Engine installation</h4>
       <div class="box-info"><span>Download the correct WordPress engine version. At the template preview page, in the requirements section, you can see the required WordPress version. Please make sure you are downloading the correct one.</span></div>
       <ol>
         <li>The WordPress engine can be downloaded from the official website at WordPress.org <a href="http://wordpress.org/download/" target="_blank"><strong>Download WordPress</strong></a>. In case you need an earlier release, you can click the <a href="http://wordpress.org/download/release-archive/" target="_blank"><strong>Release Archive</strong></a> link.
@@ -324,12 +409,12 @@
 
           <p>With the phpMyAdmin tool, you will be able to create a new database in 3 simple steps (check the slides below):</p>
 
-          <ol class="list">
+          <ol>
             <li>Click the Database button from the top navigation menu to access the database listing.</li>
             <li>Input database name into the "Create new database" field. </li>
             <li>Click the Create button on the right side.</li>
           </ol>
-
+          <br>
           <p>Your database can be seen in the database listing. Click on its name to get access to the database.</p>
 
           <div class="flexslider clearfix img-polaroid">
@@ -356,7 +441,7 @@
             </ul>    
           </div>
             <br>     
-          <p>You can also check the detailed video tutorial on <i class="icon-film"> </i>  <a target="_blank" href="/help/how-to-create-a-database.html">How to create a database</a>.</p>
+          <p>You can also check the detailed video tutorial on <a target="_blank" href="/help/how-to-create-a-database.html"><i class="icon-play-circle "></i> How to create a database</a>.</p>
        <br />   
           <div class="box-notification"><span>If you have any issues creating a database, please contact your hosting provider for help and assistance.</span></div>
 
@@ -408,43 +493,35 @@
         <li class="last"><i class="icon-info-sign"></i> <a target="_blank" href="/help/wordpress-how-to-install-the-engine-to-just-host-server-manual-installation.html">How to install the engine to Just Host server (manual installation)</a></li>
       </ul>
     </article>
-    <!-- Theme installation -->
+    
 
-    <article>
-      <h4 id="theme_installation">Theme installation</h4>
-        <p>There are two ways to install the theme: via the WordPress admin panel or via FTP. If one way does not work for you for some reason, you can always try the other one. </p>
-        <h5>Upload via WordPress admin:</h5>
-        <p>The installation process includes two steps: the framework installation and the child theme installation. Both steps are basically identical and easy to follow.</p>
-        <ol style="margin-bottom:.5em;">
-          <li>Log in to your WordPress admin panel (add /wp-admin to your domain name in the browser address bar).</li>                                             
-          <li>Go to the menu <strong>Appearance</strong> > <strong>Themes</strong> and click the <strong>Install Themes </strong>tab.</li>
-          <li>Click the <strong>Browse</strong> button and navigate to the unzipped template package on your computer.</li>
-          <li>Look for a file called  <strong>CherryFramework.zip</strong>. Click on it to select, then click <strong>OK</strong>.</li>
-          <li>Click the <strong>Install Now</strong> button and wait until the installation is complete.</li>
-          <li>Click the <strong>Activate</strong> theme link.</li>
+    <article id="manual_install">
+      <h4>Manual installation</h4>
+        <p>If you are having problems with installing the sample data, please follow the instructions  below.</p>
+        <div class="box-notification"><span>ATTENTION: Importing the SQL file to your database will overwrite your existing content and website settings. DO NOT import the SQL file if you want to keep the existing content.</span></div>
+        <div class="box-info"><span>NOTE: Always back up your database before performing any modifications.</span></div>
+        <div class="box-info"><span>Please note that the prefix of WordPress database tables should be <strong>wp_</strong>.</span></div>
+
+      <figure class="img-paraloid"><img src="img/wordpress/wp_prefix.jpg" alt=""></figure>
+      <p class="muted text-center"></p>        
+        <!--<p>If the  database prefix is different, it should be changed according to this <a target="_blank" href="/help/wordpress-how-to-change-database-tables-prefix-in-sql-file.html">manual</a>.</p>-->
+      <p>To make your WordPress look like our live demo, please follow the instructions below.</p>
+        <ol>
+          <li>Make sure the theme has been installed according to the <a href="#cherryframework_installation">following directions</a>.</li>
+          <li>Copy the"<strong>uploads</strong>" folder (that is located under the<strong> theme/manual_install/</strong> folder of your template package) to the<strong> /wp-content/ </strong> folder on your FTP.</li>
+          <li>Open the <strong>theme####.sql</strong> file that is located in the <strong>theme/manual_install/</strong> folder in any text editor (preferably Dreamweaver or Notepad) and replace all instances of "<strong>your_website_url_here</strong>" with your website URL in the entire document using the <strong>Find and Replace</strong> tool (hit Ctrl+H hot keys to open this window). E.g.: http://www.mywebsite.com</li> 
+          <li>Please, make sure that you do not have the forward slash "/" sign at the end of the address and the url starts with http://www.</li>
+          <li>Save your changes and close the file.</li>
+          <li>Now  you can import the dump file with the <strong>phpMyAdmin</strong> tool or some other database management tool.            </li>
         </ol>
-
-      <figure class="img-paraloid"><img src="img/wordpress/theme_install.png" alt=""></figure>
-      <p class="muted text-center"></p>
-
-        <p>For more information, feel free to check the detailed video tutorial on <a target="_blank" href="/help/how-install-wordpress-theme-via-admin-panel.html">How to install a WordPress theme via admin panel</a> and <a target="_blank" href="/help/wordpress-how-to-install-cherry-framework-template.html">How to install Cherry framework template</a>.</p>
-        <p>Congratulations, you have just installed the framework. Now you can proceed to installing  the child theme: <strong>theme####.zip</strong>. The steps are the same:</p>
-        <ol style="margin-bottom:.5em;">
-          <li>Go to the menu <strong>Appearance</strong> > <strong>Themes</strong> and click the <strong>Install Themes </strong>tab.</li>
-          <li>Click the <strong>Browse</strong> button and navigate to the unzipped template package on your computer.</li>
-          <li>Look for a file called <strong>theme####.zip </strong>(where <strong>XXXX</strong> is the unique number of your theme). Click on it to select, then click <strong>OK</strong>.</li>
-          <li>Click the <strong>Install Now</strong> button and wait until the installation is complete.</li>
-          <li>Click the <strong>Activate</strong> link to change the current layout of the site to the theme your purchased.</li>
-        </ol>
-
-      <figure class="img-paraloid"><img src="img/wordpress/theme_activate.png" alt=""></figure>
-      <p class="muted text-center"></p>
-
-        <p>Congratulations, both the framework and theme have been successfully installed!</p>
-      <br>
-        <div class="box-info"><span>If there are problems with installing them via the admin panel, here's the alternative way to do it.</span></div>
-        <h5>Upload via ftp:</h5>
+<br>
+      
+      <div class="box-info"><span>If there are problems with installing them via the admin panel, here's the alternative way to do it.</span></div>
+        <h5>Install Sample Data via FTP ftp:</h5>
+        
         <p>To use this method, you need to have access to your WordPress site files on FTP through the File  Manager of your hosting control panel or an FTP client like Filezilla,  CuteFTP, Total Commander, etc.</p>
+        <div class="box-info"><span>If you have installed the theme with the sample data install or manual install and the theme is displayed differently from the Live demo, please open Cherry Options and click "Restore Defaults."</span></div>
+      
       <ol>
         <li>Unzip the <strong>CherryFramework.zip</strong> and <strong>theme####.zip</strong> files to any folder on your hard drive (fist, right-click each of the .zip files, select <strong>Unzip  to… CherryFramework</strong> and <strong>theme####</strong> accordingly, so you get the two folders called CherryFramework and theme####).
         </li>
@@ -454,52 +531,9 @@
         <li>Under the <strong>Available Themes</strong> section find <strong>theme####</strong> and activate it by clicking the <strong>Activate</strong> button.</li>
       </ol>
     </article>
-
-    <article>
-      <h4 id="theme_sample_data">Sample Data Install</h4>
-      <p>To make your WordPress website look like our live demo, please follow the instructions below. We also suggest you always have a backup .sql file <a target="_blank" href="/help/phpmyadmin-how-to-backup-a-database.html">exported</a> from your database.</p>
-      <ol>
-        <li>Go to the menu <strong>Cherry Plugin &gt; Import Content.</strong></li>
-        <li>First of all you may see requirements table that shows if you hosting server meets Cherry Plugin requirements. Please contact your hosting provider if there are any warnings.
-        <figure class="img-paraloid"><img src="img/wordpress/import_1st_step.png" alt=""></figure></li>
-        <li>If all server settings are OK you'll see uploading screen. Open <b>"theme/sample_data"</b> directory from the template package and upload all files to WordPress. You can upload all files selecting them in the <b>"theme/sample_data"</b> directory (CTRL+A or Command+A) and dragging them to the uploading area.
-        <figure class="img-paraloid"><img src="img/wordpress/import_2nd_step.png" alt=""></figure></li>
-        <li>Make sure to upload all files from the sample_data directory including .JSON and .XML files. When upload is done click "Continue Install" button to proceed. <br><br>
-        <div class="box-notification"><span>ATTENTION: .JSON and .XML are required to proceed with the sample data installation. Continue Install button will be available only in case both .XML and .JSON files have been uploaded.</span></div>
-        <figure class="img-paraloid"><img src="img/wordpress/import_3d_step.png" alt=""></figure></li>
-        <li>Clicking "Continue Install" button will activate sample data installation process. Installation steps may take some time depending on your server settings. Please be patient.
-        <figure class="img-paraloid"><img src="img/wordpress/import_4th_step.png" alt=""></figure></li>
-        <li><span><strong>Congratulations!</strong> You have successfully installed your Cherry WordPress Theme. You can look at the theme now.</span>
-        <figure class="img-paraloid"><img src="img/wordpress/import_5th_step.png" alt=""></figure>
-        </li>
-      </ol>      
-    </article>
-
-    <article>
-      <h4 id="manual_install">Manual installation</h4>
-        <p>If you are having problems with installing the sample data, please follow the instructions  below.</p>
-        <div class="box-notification"><span>ATTENTION: Importing the SQL file to your database will overwrite your existing content and website settings. DO NOT import the SQL file if you want to keep the existing content.</span></div>
-        <div class="box-info"><span>NOTE: Always back up your database before performing any modifications.</span></div>
-        <div class="box-info"><span>Please note that the prefix of WordPress database tables should be <strong>wp_</strong>.</span></div>
-
-      <figure class="img-paraloid"><img src="img/wordpress/wp_prefix.jpg" alt=""></figure>
-      <p class="muted text-center"></p>        
-        <p>If the  database prefix is different, it should be changed according to this <a target="_blank" href="/help/wordpress-how-to-change-database-tables-prefix-in-sql-file.html">manual</a>.</p>
-      <p>To make your WordPress look like our live demo, please follow the instructions below.</p>
-        <ol>
-          <li>Make sure the theme has been installed according to the <a href="#theme-installation">following directions.</a></li>
-          <li>Copy the"<strong>uploads</strong>" folder (that is located under the<strong> theme/manual_install/</strong> folder of your template package) to the<strong> /wp-content/ </strong> folder on your FTP.</li>
-          <li>Open the <strong>theme####.sql</strong> file that is located in the <strong>theme/manual_install/</strong> folder in any text editor (preferably Dreamweaver or Notepad) and replace all instances of "<strong>your_website_url_here</strong>" with your website URL in the entire document using the <strong>Find and Replace</strong> tool (hit Ctrl+H hot keys to open this window). E.g.: http://www.mywebsite.com</li> 
-          <li>Please, make sure that you do not have the forward slash "/" sign at the end of the address and the url starts with http://www.</li>
-          <li>Save your changes and close the file.</li>
-          <li>Now  you can <a target="_blank" href="/help/phpmyadmin-how-to-import-sample-data-dump-file-phpmyadmin.html">import</a> the dump file with the <strong>phpMyAdmin</strong> tool or some other database management tool.            </li>
-        </ol>
-      <p>If you have problems with manual installation, please read this <a target="_blank" href="/help/wordpress-how-to-install-cherry-framework-theme-sample-data-manually.html">manual</a>.</p>
-      <div class="box-info"><span>If you have installed the theme with the sample data install or manual install and the theme is displayed differently from the Live demo, please open Cherry Options and click "Restore Defaults."</span></div>
-    </article>
   
-    <article> 
-        <h4 id="plugins_intstall">Plugin Installation</h4>
+    <article id="plugins_intstall"> 
+        <h4>Plugin Installation</h4>
         <p>Once the theme is installed and activated, you may need to install its plugins:</p>
         <ol>
           <li>In your WordPress admin panel, go to the menu <strong>Plugins -&gt; Add New.</strong></li>
@@ -511,17 +545,14 @@
           <li>When the plugin is installed, click <strong>Activate</strong>.</li>
           <li>If there is more than one plugin in the /plugins/ folder, repeat the steps to install and activate all of them.
           </li>
-        </ol>
-        <ul class="unstyled">
-          <li><i class="icon-film"> </i> <a target="_blank" href="/help/files/wordpress/how-to-install-plugin.swf">How to install a Plugin</a></li>
-        </ul>
+        </ol>   
 
        <!--  <figure class="img-paraloid"><img src="img/wordpress/plugins_install.jpg" alt=""></figure> -->
         <p class="muted text-center"></p>
     </article>
 
-    <article >
-      <h4 id="theme_plugins">Theme Plugins:</h4>
+    <article  id="theme_plugins">
+      <h4>Theme Plugins:</h4>
       <h5>Cherry Plugin</h5>
       <p><span class="label label-important">Attention:</span> Installation and activation of Cherry Plugin is required for the correct work of shortcodes and widgets. Cherry Plugin is installed and activated by default on installing Cherry Framework.</p>
       <p><span class="label label-info">Download:</span> <a href="https://github.com/CherryFramework/CherryFramework/raw/master/includes/plugins/cherry-plugin.zip">https://github.com/CherryFramework/CherryFramework/raw/master/includes/plugins/cherry-plugin.zip</a><br />
@@ -530,16 +561,17 @@
       <p><span class="label label-info">Download:</span> <a href="http://wordpress.org/extend/plugins/contact-form-7/">http://wordpress.org/extend/plugins/contact-form-7/</a><br />
       <span class="label">Description:</span> Contact form for contact page.</p>
 
+      <h4>Compatible Plugins:</h4>
+      <h5 class="indent_top">WPML</h5>
+      <p><span class="label label-info">Download:</span> <a href="http://wpml.org/">http://wpml.org/</a><br />
+      <span class="label">Description:</span> WPML makes it easy to build multilingual sites and run them.</p>
+
+
       <h5 class="indent_top">Jigoshop</h5>
       <p><span class="label label-info">Download:</span> <a href="http://wordpress.org/plugins/jigoshop/">http://wordpress.org/plugins/jigoshop/</a><br />
       <span class="label">Description:</span> A feature-packed eCommerce plugin built upon WordPress core functionality ensuring excellent performance and customizability. <br>
       <span class="label label-warning">Documentation:</span> <a href="http://forum.jigoshop.com/kb" rel="nofollow" target="_blank">Jigoshop documentation</a> at Jigoshop Knowledge Base.
       </p>
-
-      <h4>Compatible Plugins:</h4>
-      <h5 class="indent_top">WPML</h5>
-      <p><span class="label label-info">Download:</span> <a href="http://wpml.org/">http://wpml.org/</a><br />
-      <span class="label">Description:</span> WPML makes it easy to build multilingual sites and run them.</p>
 
       <h5 class="indent_top">BuddyPress</h5>
       <p><span class="label label-info">Download:</span> <a href="http://wordpress.org/plugins/buddypress/">http://wordpress.org/plugins/buddypress/</a><br />
@@ -558,13 +590,29 @@
       <span class="label">Description:</span> This WordPress plugin is a complete forum system for your wordpress blog.</p>
     </article>     
 
+    <article id="cookie_policy"> 
+        <h4>Cookie Policy</h4>
+        <p>Cookies are small text files which websites place on visitors’ computers. They’re typically used to identify that particular visitor and provide them with a better experience. Cookies are a crucial part of many website functions which we take for granted.</p>
+
+        <p>For instance, it’s usually cookies which allow online shops to remember what items you have in your shopping trolley. They’re also used to keep you logged in to a website, or to provide valuable usage statistics and information to website owners.</p>
+
+        <p>If you run a website, it almost certainly uses cookies. Their most likely function is to monitor visitor numbers and behaviours through tools like Google Analytics. They may also be used to display relevant adverts to visitors, or – if you sell online – to power key parts of your online shopping system.</p>
+
+        <p>26th May 2012 - The ICO released a change to the enforcement, "implied consent" is now allowed as long as you make it clear where your privacy/cookie policy is.</p>
+        
+        <p>Following the Cookie Law conditions you can add sufficient modules to your website. Module will display a warning message about the cookies used on your website. You can use the following ones: <a href="https://wordpress.org/plugins/cookie-banner/">Cookie Banner</a>, <a href="http://wordpress.org/plugins/cookie-notice/">Cookie Notice</a></p>
+        
+
+    </article>
+    
+    
   </section>
 <!-- Getting started end -->
 
 <!--Backup and Update started --> 
   <section class="block-templates" id="backup_update">  
 
-    <h2><i class="icon-refresh"></i> Back up and Update</h2>
+    <h2 class="item4"><i class="icon-refresh"></i> Back up and Update</h2>
 
     <div class="box-notification"><span>Before updating Cherry Framework, we strongly recommend to make a backup of the current version.</span></div>
     <h4>Backup</h4>
@@ -588,9 +636,12 @@
 <!--Backup and Update end --> 
 
 <!-- Page Templates and Sidebars begin -->
-  <section class="block-templates" id="page_templates_sidebars">  
+  <section class="block-templates" id="page_templates_sidebars"> 
+  
 
-    <h2><i class="icon-file-alt"></i> Page Templates and Sidebars</h2>
+    <h2 class="item5"><i class="icon-file-alt"></i> Page Templates and Sidebars</h2>
+    <br>
+    <div class="box-notification"><span>ATTENTION: It is necessary to edit styles in the style.less file. Because of options styles are compiled anew and the main-style.css file is rewritten after saving. </span></div> 
 
     <h4>Page Templates</h4>
       <ul>
@@ -616,7 +667,7 @@
 <!-- Posts, Categories and Post Formats begin -->
   <section class="block-templates" id="posts_categories">  
 
-    <h2><i class="icon-edit"></i> Posts, Categories and Post Formats</h2>
+    <h2 class="item6"><i class="icon-edit"></i> Posts, Categories and Post Formats</h2>
 
     <!-- Adding category -->
     <article id="adding-category">
@@ -746,7 +797,6 @@
         <li><i class="icon-angle-right"></i> <strong>URL #2</strong> - a direct link to a video clip in ogv format</li>
         <li><i class="icon-angle-right"></i> <strong>Embedded Code</strong> - used for off-site video embedding, e.g. via youtube, vimeo, etc.</li>
       </ul>
-      <p>Manual: <a target="_blank" href="/help/wordpress-how-to-create-audiovideo-post.html">How to create audio/video post</a></p>
     </article>
 
     <!-- Creating a slider post -->
@@ -890,7 +940,7 @@
 <!-- Portfolio page begin -->
   <section class="block-templates" id="portfolio_page">  
 
-    <h2><i class="icon-picture"></i> Portfolio page</h2>
+    <h2 class="item7"><i class="icon-picture"></i> Portfolio page</h2>
 
     <!-- Creating a Portfolio page -->
     <article>
@@ -908,7 +958,7 @@
       </ol>
       <p>You can create a category portfolio page using the <strong>Category Include</strong> field. You need to write the slug of the category which you want to be displayed.</p>
       <figure class="img-paraloid"><img src="img/wordpress/category_in.jpg" alt=""></figure>
-      <p>Feel free to check out the following tutorial on <a target="_blank" href="/help/wordpress-how-to-add-portfolio-page.html">how to add portfolio page</a> and <a target="_blank" href="/help/wordpress-how-to-work-with-portfolio-page.html">how to work with portfolio page</a>.</p>
+      
     </article>
   </section>   
 <!-- Portfolio page end -->
@@ -916,7 +966,7 @@
 <!-- Shortcodes begin -->
   <section class="block-templates" id="shortcodes">  
 
-    <h2><i class="icon-file"></i> Shortcodes</h2>
+    <h2 class="item8"><i class="icon-file"></i> Shortcodes</h2>
     <p>A shortcode is a powerful content building tool <a href="http://codex.wordpress.org/Shortcode">http://codex.wordpress.org/Shortcode</a>. Shortcodes are easy to use. First of all, make sure that the editing mode is set to <strong>Visual</strong>.</p>
     <figure class="img-paraloid"><img src="img/wordpress/sc_visual.jpg" alt=""></figure>
     <p>Then please click the button for the shortcodes. After that, select the shortcode you want to insert.</p>
@@ -994,10 +1044,17 @@
         <div class="span5"><p><span class="label">Description:</span> compact display of different posts in mini-slider view.</p></div>
       </div>
       <br>
-      <h5>Carousel</h5>
+      <h5>Carousel(Elasti)</h5>
       <figure class="img-paraloid"><img src="img/wordpress/shortcode_car.jpg" alt=""></figure>
       <div class="row-fluid">
         <div class="span7"><pre class="prettyprint">[carousel num="5" type="blog" thumb="true" thumb_width="120" thumb_height="50" date="yes" author="yes" min_items="3"]</pre></div>
+        <div class="span5"><p><span class="label">Description:</span> displays the posts in carousel view, has various additional options.</p></div>
+      </div>
+      <br>
+      <h5>Carousel(OWL)</h5>
+      <figure class="img-paraloid"><img src="img/wordpress/shortcode_car_owl.jpg" alt=""></figure>
+      <div class="row-fluid">
+        <div class="span7"><pre class="prettyprint">[carousel_owl title="Title" post_type="blog" posts_count="5" visibility_items="3" thumb="yes" thumb_width="200" thumb_height="200" date="yes" author="yes" comments="no" excerpt_count="10" display_navs="yes" display_pagination="yes"]</pre></div>
         <div class="span5"><p><span class="label">Description:</span> displays the posts in carousel view, has various additional options.</p></div>
       </div>
       <br>
@@ -1074,6 +1131,16 @@
 [span4] Your content... [/span4]
 [/row]</pre></div>
         <div class="span6"><p>Multiple Columns shortcodes are used to simplify content forming by inserting the most common grid variants.</p></div>
+      </div>
+      <br>
+            <h5>Custom classes</h5>
+      <div class="row-fluid">
+        <div class="span6"><pre class="prettyprint">
+[row custom_class="custom-row"]
+[span8 custom_class="custom-span8"] content [/span8]
+[span4 custom_class="custom-span4"] content [/span4]
+[/row]</pre></div>
+        <div class="span6"><p>You can also add custom classes to Columns category shortcodes. This expands customization options for specific blocks. </p></div>
       </div>
       <br>
     </article>
@@ -1171,6 +1238,18 @@
       <div class="row-fluid">
         <div class="span6"><pre class="prettyprint">[check_list] List here ... [/check_list] </pre></div>
         <div class="span6"><p><span class="label">Description:</span> a set of shortcodes used to display various lists stylizations. Each shortcode implements its own marker for the list items.</p></div>
+      </div> 
+      <br>
+      <h5>Extra Wrap</h5>
+      <div class="row-fluid">
+        <div class="span6"><pre class="prettyprint">[extra_wrap][/extra_wrap]</pre></div>
+        <div class="span6"><p><span class="label">Description:</span> Shortcode for wrapping content with block with overflow:hidden.</div>
+      </div>
+      <br>
+      <h5>Content Box</h5>
+      <div class="row-fluid">
+        <div class="span6"><pre class="prettyprint">[content_box custom_class="custom_content_box"][/content_box]</pre></div>
+        <div class="span6"><p><span class="label">Description:</span> Shortcode for wrapping content with block with pseudo classes :before and :after for displaying full width block.</div>
       </div>
     </article>
     <article id="other_shortcodes">
@@ -1288,25 +1367,24 @@
 [/chp_pricing_column]
 
 [/chp_pricing_table]
-
         </pre>
         <p><span class="label">Description:</span> used to display Pricing tables.</p>
        <br>
     <h5>Audio / Video</h5>
-    <p><span class="label">Description:</span> WordPress 3.6 has great support for embedding YouTube and Vimeo videos, but if you want to play a video or audio file, like an MP3 or MP4 file, that has been uploaded to a server, you need to implement some kind of player so that the file would appear as media rather than a link on your site. <a href="http://make.wordpress.org/core/2013/04/08/audio-video-support-in-core/" target="_blank">Read More</a></p>
+    <p><span class="label">Description:</span> WordPress 3.6+ has great support for embedding YouTube and Vimeo videos, but if you want to play a video or audio file, like an MP3 or MP4 file, that has been uploaded to a server, you need to implement some kind of player so that the file would appear as media rather than a link on your site. <a href="http://make.wordpress.org/core/2013/04/08/audio-video-support-in-core/" target="_blank">Read More</a></p>
     The process is similar to inserting an image into your post content:
     <ol class="clearfix">
       <li>Add or edit a page or post.</li>
       <li>
         <span>Click in your content where you want the player to appear, then hit <strong style="color:#666">Add Media</strong> above the content editor.</span>
-        <figure class="img-paraloid pull-left"><img src="img/audio_video_1.jpg" height="35" width="107" alt=""></figure>
+        <figure class="img-paraloid"><img src="img/audio_video_1.jpg" height="35" width="107" alt=""></figure>
         <div class="clear"></div>
       </li>
       <li>Click <strong>Upload Files</strong>.</li>
       <li>Upload an audio or video file.</li>
       <li>
         <span>Make sure the file you uploaded is selected, then under <em>Attachment Display Settings</em>, set <em>Embed or Link</em> to &quot;Embed Media Player.&quot;</span>
-        <figure class="img-paraloid pull-left"><img src="img/audio_video_2.jpg" height="92" width="268" alt=""></figure>
+        <figure class="img-paraloid"><img src="img/audio_video_2.jpg" height="92" width="268" alt=""></figure>
         <div class="clear"></div>
       </li>
       <li>Click <strong>Insert into page</strong>.</li>
@@ -1329,7 +1407,7 @@
 <!-- Plugins and Custom Widgets begin -->
   <section class="block-templates" id="plugins_widgets">  
 
-    <h2><i class="icon-magnet"></i> Plugins and Custom Widgets</h2>
+    <h2 class="item9"><i class="icon-magnet"></i> Plugins and Custom Widgets</h2>
 
     <article id="plugins">
       <h4>Plugins</h4>
@@ -1423,8 +1501,7 @@
 	              <li><i class="icon-angle-right"></i> <em>Both</em> - icons and text.</li>
 	            </ul>
 	          </li>
-	        </ul>
-	        <p>Manual: <a target="_blank" href="/help/wordpress-how-to-work-with-the-social-icons-widget.html">How to work with the social icons widget</a></p>
+	        </ul>        
       	</div>
       </div>
       <br />
@@ -1437,19 +1514,6 @@
 	          <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
 	          <li><i class="icon-angle-right"></i> <strong>Image Ad link:</strong> - path to your banner image</li>
 	          <li><i class="icon-angle-right"></i> <strong>Add link:</strong> - your banner link.</li>
-	        </ul>
-        </div>
-      </div>
-      <br />
-      <div class="row"> 
-        <figure class="img-paraloid pull-left"><img src="img/wordpress/widget_twitter.jpg" alt=""></figure>
-        <div class="clearfix">
-	        <h5>Cherry - Twitter</h5>
-	        <p>This widget allows you to display the latest tweets from your twitter account. The widget contains the following options:</p>
-	        <ul>
-	          <li><i class="icon-angle-right"></i> <strong>Title:</strong> - Widget Title</li>
-	          <li><i class="icon-angle-right"></i> <strong>Twitter Name:</strong> - your twitter name</li>
-	          <li><i class="icon-angle-right"></i> <strong>Tweets number:</strong> - the number of tweets to show.</li>
 	        </ul>
         </div>
       </div>
@@ -1511,14 +1575,71 @@
 	        </ul>
         </div>
       </div>
+      <br />
+      <div class="row"> 
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/widget_cherry_banner.jpg" alt=""></figure>
+        <div class="clearfix">
+          <h5>Cherry - Banner</h5>
+          <p>Widget is used to display banner. It contains the following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Title (optional):</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>Banner description:</strong> - Widget Banner description</li>
+            <li><i class="icon-angle-right"></i> <strong>Image URL:</strong> - Background source image</li>
+            <li><i class="icon-angle-right"></i> <strong>Fill image:</strong> - Option for switching between two banner display options: resizing image to make it fit banner dimensions as a background or putting image above banner content</li>
+            <li><i class="icon-angle-right"></i> <strong>Link URL: </strong> - link URL</li>
+            <li><i class="icon-angle-right"></i> <strong>Custom CSS class: </strong> - widget custom class</li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="row"> 
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/widget_facebook_like_box.jpg" alt=""></figure>
+        <div class="clearfix">
+          <h5>Cherry - Facebook Like Box Widget</h5>
+          <p>This widget is used to display Facbook pages. It contains the following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Title (optional):</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>Facebook page url:</strong> - url your <a href="https://www.facebook.com/help/174987089221178/">Facebook Page</a></li>
+            <li><i class="icon-angle-right"></i> <strong>Width: & Height:</strong> - Widget size</li>
+            <li><i class="icon-angle-right"></i> <strong>Color Scheme:</strong> - Color Scheme(Light/Dark)</li>
+            <li><i class="icon-angle-right"></i> <strong>Display header:</strong> - enable/disable header</li>
+            <li><i class="icon-angle-right"></i> <strong>Display faces:</strong> - enable/disable faces</li>
+            <li><i class="icon-angle-right"></i> <strong>Display stream:</strong> - enable/disable stream</li>
+            <li><i class="icon-angle-right"></i> <strong>Display border:</strong> - enable/disable border</li>
+            <li><i class="icon-angle-right"></i> <strong>Custom CSS class: </strong> - widget custom class</li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="row"> 
+        <figure class="img-paraloid pull-left"><img src="img/wordpress/widget_cherry_instagram.jpg" alt=""></figure>
+        <div class="clearfix">
+          <h5>Cherry - Instagram</h5>
+          <p>Widget is used to display recent Instagram posts. It contains the following options:</p>
+          <ul>
+            <li><i class="icon-angle-right"></i> <strong>Widget Title: (optional):</strong> - Widget Title</li>
+            <li><i class="icon-angle-right"></i> <strong>User Name: (required field)</strong> - Instagram User Name(Widget will work only for users who have full rights opened in Instagram account.)</li>
+            <li><i class="icon-angle-right"></i> <strong>Number of displayed images: </strong> - Number of displayed images(Max value: 20 images.)</li>
+            <li><i class="icon-angle-right"></i> <strong>Image dimensions:</strong> - the size of the displayed image(Large/Thumbnail)</li>
+            <li><i class="icon-angle-right"></i> <strong>Show image description:</strong> - enable/disable image description</li>
+            <li><i class="icon-angle-right"></i> <strong>Show comments number:</strong> - enable/disable comments number</li>
+            <li><i class="icon-angle-right"></i> <strong>Show likes number:</strong> - enable/disable likes number</li>
+            <li><i class="icon-angle-right"></i> <strong>Show image publication date:</strong> - enable/disable image publication date</li>
+            <li><i class="icon-angle-right"></i> <strong>Show Image URL:</strong> - enable/disable Image URL</li>
+            <li><i class="icon-angle-right"></i> <strong>User account button text: </strong> - text profile link Instagram</li>
+            <li><i class="icon-angle-right"></i> <strong>Custom CSS class: </strong> - widget custom class</li>
+          </ul>
+        </div>
+      </div>
     </article>
   </section>  
 <!-- Plugins and Custom Widgets end -->
 <!-- Theme Options begin -->
   <section class="block-templates" id="theme_options">  
 
-    <h2><i class="icon-cogs"></i> Cherry Options</h2>
+    <h2 class="item10"><i class="icon-cogs"></i> Cherry Options</h2>
     <p>The following theme contains the Settings option. These settings allow you to change the theme’s color palette, order of items, turn items on/off  and do lots of other things. In order to use these settings, please go to <strong>Appearance &rarr; Cherry Options</strong>.</p>
+
     <article id="general_option"> 
       <h4>General</h4>
       <div class="row"> 
@@ -1526,8 +1647,10 @@
       <div class="clearfix">
       <ul>
         <li><i class="icon-angle-right"></i> <strong>Body styling</strong> - you can select the body color and the background pattern.</li>
-        <li><i class="icon-angle-right"></i> <strong>Header background color</strong> - Header background color.</li>
+        <li><i class="icon-angle-right"></i> <strong>Layout Style: </strong> - you can select layout for Your site(wide/boxes style)</li>
+        <li><i class="icon-angle-right"></i> <strong>Header styling:</strong> - Header background image and fill color.</li>
         <li><i class="icon-angle-right"></i> <strong>Buttons and links color</strong> - Buttons and links color.</li>
+        <li><i class="icon-angle-right"></i> <strong>Buttons and links hover color</strong> - Buttons and links hover color.</li>
         <li><i class="icon-angle-right"></i> <strong>Body Text</strong> - You can choose your preferred font for body text. The following options are available for editing the fonts:
           <ol style="margin-bottom:0; padding-left:20px; overflow:hidden;">
             <li><em>Font size</em></li>
@@ -1553,11 +1676,12 @@
        
         <li><i class="icon-angle-right"></i> <strong>Display search box?</strong> - show/hide the search bar in the header.</li>
         <li><i class="icon-angle-right"></i> <strong>Display breadcrumbs?</strong> - show/hide the breadcrumbs in the pages.</li>
-        <li><i class="icon-angle-right"></i> <strong>Custom CSS</strong> - if you need to add some CSS rules, but you don't want to mess with the main css file, you can use this field. Just insert your new css rules.</li>
+        <li><i class="icon-angle-right"></i> <strong>Custom CSS</strong> - if you need to add some CSS rules, but you don't want to mess with the main CSS file, you can use this field. Just insert your new css rules.</li>
       </ul>
       </div>
       </div>
     </article>
+
     <article id="logo_option">
       <h4>Logo &amp; Favicon</h4> 
       <div class="row"> 
@@ -1583,6 +1707,7 @@
       </div>
       </div>
     </article>
+
     <article id="navigation_option">
       <h4>Navigation</h4> 
       <div class="row"> 
@@ -1603,15 +1728,19 @@
         <li><i class="icon-angle-right"></i> <strong>Delay</strong> - delay in milliseconds that defines when the menu hides</li>
         <li><i class="icon-angle-right"></i> <strong>Fade-in animation</strong> - enable/disable the fade-in animation</li>
         <li><i class="icon-angle-right"></i> <strong>Slide-down animation</strong> - enable/disable the slide animation</li>
-        <li><i class="icon-angle-right"></i> <strong>Speed</strong> - the speed of the submenu expanding</li>
-        <li><i class="icon-angle-right"></i> <strong>Arrows markup</strong> - enable/disable  arrows for the menu items that have submenus</li>
+        <li><i class="icon-angle-right"></i> <strong>Speed</strong> - the speed of the sub-menu expanding</li>
+        <li><i class="icon-angle-right"></i> <strong>Arrows markup</strong> - enable/disable  arrows for the menu items that have sub-menus</li>
         <li><i class="icon-angle-right"></i> <strong>Mobile menu label</strong> - This text is visible in mobile select menu.</li>
+        <li><i class="icon-angle-right"></i> <strong>Use stickUp menu</strong> - Enable this option if you want to use stickUp menu.</li>
       </ul>
       </div>
       </div>
     </article>
+
     <article id="slider_option">
       <h4>Slider</h4>
+      <p>Slider height can be defined in <b>"wp-content/themes/theme###/slider.php"</b>. Edit "height" value in $slider_default_params array.</p>
+
       <h5>Disable Slider</h5>
       <div class="row"> 
         <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_slider_none.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_slider_none.jpg" alt=""><i class="icon-search"></i></a></figure>
@@ -1619,24 +1748,26 @@
       </div>
       <h5>Slideshow</h5>
       <div class="row"> 
-      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_slider_camera.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_slider_camera.jpg" alt=""><i class="icon-search"></i></a></figure>
-      <div class="clearfix">
-      <ul>
-        <li><i class="icon-angle-right"></i> <strong>Sliding effect</strong> - slider transition effect</li>
-        <li><i class="icon-angle-right"></i> <strong>Number of columns</strong> - number of columns</li>
-        <li><i class="icon-angle-right"></i> <strong>Number of rows</strong> - number of rows</li>
-        <li><i class="icon-angle-right"></i> <strong>Banner effect</strong> - select your banner animation type</li>
-        <li><i class="icon-angle-right"></i> <strong>Pause time</strong> - pause time (ms)</li>
-        <li><i class="icon-angle-right"></i> <strong>Animation speed</strong> - animation speed (ms)</li>
-        <li><i class="icon-angle-right"></i> <strong>Slideshow</strong> - Animate slider automatically?</li>
-        <li><i class="icon-angle-right"></i> <strong>Thumbnails</strong> - Display thumbnails?</li>
-        <li><i class="icon-angle-right"></i> <strong>Pagination</strong> - Display pagination?</li>
-        <li><i class="icon-angle-right"></i> <strong>Next &amp; Prev navigation</strong> - Display next & prev navigation?</li>
-        <li><i class="icon-angle-right"></i> <strong>Display next &amp; prev navigation only on hover?</strong> - If 'yes,' the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if 'no,' they will always be visible.</li>
-        <li><i class="icon-angle-right"></i> <strong>Play/Pause button</strong> - Display Play/Pause button?</li>
-        <li><i class="icon-angle-right"></i> <strong>Loader</strong> - slider loader.</li>
-      </ul>
-      </div>
+        <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_slider_camera.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_slider_camera.jpg" alt=""><i class="icon-search"></i></a></figure>
+        <div class="clearfix">
+        <ul>
+          <li><i class="icon-angle-right"></i> <strong>Sliding effect</strong> - slider transition effect</li>
+          <li><i class="icon-angle-right"></i> <strong>Sort by parameter</strong> - sort retrieved posts by parameter (order by)</li>
+          <li><i class="icon-angle-right"></i> <strong>Sort order</strong> - sort order for posts</li>
+          <li><i class="icon-angle-right"></i> <strong>Number of columns</strong> - number of columns</li>
+          <li><i class="icon-angle-right"></i> <strong>Number of rows</strong> - number of rows</li>
+          <li><i class="icon-angle-right"></i> <strong>Banner effect</strong> - select your banner animation type</li>
+          <li><i class="icon-angle-right"></i> <strong>Pause time</strong> - pause time (ms)</li>
+          <li><i class="icon-angle-right"></i> <strong>Animation speed</strong> - animation speed (ms)</li>
+          <li><i class="icon-angle-right"></i> <strong>Slideshow</strong> - Animate slider automatically?</li>
+          <li><i class="icon-angle-right"></i> <strong>Thumbnails</strong> - Display thumbnails?</li>
+          <li><i class="icon-angle-right"></i> <strong>Pagination</strong> - Display pagination?</li>
+          <li><i class="icon-angle-right"></i> <strong>Next &amp; Prev navigation</strong> - Display next & prev navigation?</li>
+          <li><i class="icon-angle-right"></i> <strong>Display next &amp; prev navigation only on hover?</strong> - If 'yes,' the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if 'no,' they will always be visible.</li>
+          <li><i class="icon-angle-right"></i> <strong>Play/Pause button</strong> - Display Play/Pause button?</li>
+          <li><i class="icon-angle-right"></i> <strong>Loader</strong> - slider loader.</li>
+        </ul>
+        </div>
       </div>
       <h5>Accordion</h5>
       <div class="row"> 
@@ -1644,6 +1775,8 @@
       <div class="clearfix">
       <ul>
         <li><i class="icon-angle-right"></i> <strong>Slides to display</strong> - Select the slides that you want to be displayed on the slider. If no slide is selected, all slides will be displayed.</li>
+        <li><i class="icon-angle-right"></i> <strong>Sort by parameter</strong> - sort retrieved posts by parameter (order by)</li>
+      <li><i class="icon-angle-right"></i> <strong>Sort order</strong> - sort order for posts</li>
         <li><i class="icon-angle-right"></i> <strong>Slideshow</strong> - Animate slider automatically?</li>
         <li><i class="icon-angle-right"></i> <strong>Pause on mouseover</strong> - The auto play will pause when you mouse over the slider.</li>
         <li><i class="icon-angle-right"></i> <strong>Pause time</strong> - pause time (ms).</li>
@@ -1655,6 +1788,7 @@
       </div>
       </div>
     </article>
+
     <article id="blog_option">
       <h4>Blog</h4>
       <div class="row"> 
@@ -1663,11 +1797,13 @@
       <ul>
         <li><i class="icon-angle-right"></i> <strong>Blog Title</strong> - your Blog Title used on the Blog page</li>
         <li><i class="icon-angle-right"></i> <strong>Related Posts Title</strong> - your title used on Single Post page for related posts</li>
-        <li><i class="icon-angle-right"></i> <strong>Sidebar position</strong> - you can select the position for the sidebar (right or left)</li>
+        <li><i class="icon-angle-right"></i> <strong>Blog layout</strong> - choose blog layout</li>
         <li><i class="icon-angle-right"></i> <strong>Blog image size</strong> - the image size (Normal size or Large size) for the Blog page</li>
         <li><i class="icon-angle-right"></i> <strong>Single post image size</strong> - the image size (Normal size or Large size) for the single post page</li>
-        <li><i class="icon-angle-right"></i> <strong>Enable Meta for blog posts?</strong> - display meta for posts</li>
+        <li><i class="icon-angle-right"></i> <strong>Display share button in single post?</strong> - display share button in single post</li>
+        <li><i class="icon-angle-right"></i> <strong>Should images be uploaded on page scroll?</strong> - you can enable images load only as you scroll down the page. Otherwise images will load all at once.</li>
         <li><i class="icon-angle-right"></i> <strong>Enable excerpt for blog posts?</strong> - display excerpt for posts</li>
+        <li><i class="icon-angle-right"></i> <strong>Button text for blog posts.</strong> - button text for blog posts</li>
         <li><i class="icon-angle-right"></i> <strong>View meta of the blog</strong> - select the meta block type which will be displayed on the blog and post pages</li>
         <li><i class="icon-angle-right"></i> <strong>Post publication date</strong> - Should the post publication date be displayed?</li>
         <li><i class="icon-angle-right"></i> <strong>Author of the post</strong> - Display the author of the post?</li>
@@ -1682,6 +1818,7 @@
       </div>
       </div>
     </article>
+
     <article id="portfolio_option">
       <h4>Portfolio</h4>
       <div class="row"> 
@@ -1701,6 +1838,7 @@
       </div>
       </div>
     </article>
+
     <article id="footer_option">
       <h4>Footer</h4>
       <div class="row"> 
@@ -1725,31 +1863,10 @@
       </ul>
       </div>
       </div>
-    </article>
-
-
-     <article id="shop_option">
-      <h4>Shop Options</h4>
-      <div class="row"> 
-      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_shop.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_shop.jpg" alt=""><i class="icon-search"></i></a></figure>
-      <div class="clearfix">
-      <ul>
-        <li><i class="icon-angle-right"></i> <strong>Product title length limit</strong> - max number of words, which will shown in product title on catalog page (leave empty for displaying full title)</li>
-        <li><i class="icon-angle-right"></i> <strong>Product description</strong> - Show/hide product description on catalog page</li>
-        <li><i class="icon-angle-right"></i> <strong>Show details button on catalog page</strong> - Show/hide product details button on catalog page</li>
-        <li><i class="icon-angle-right"></i> <strong>Display login links?</strong> - Display login links in the shop menu?</li>
-        <li><i class="icon-angle-right"></i> <strong>User profile link</strong> - user profile link title. If you use macro %username% it will be replaced with the current username. For example Site %username% .</li>
-        <li><i class="icon-angle-right"></i> <strong>Logoff link</strong> - Logoff link title.</li>
-        <li><i class="icon-angle-right"></i> <strong>Registration link</strong> - Registration link title</li>
-        <li><i class="icon-angle-right"></i> <strong>Authentication link (login)</strong> - Authentication (login) link title</li>
-      </ul>
-      </div>
-      </div>
-    </article>
-
-    <p class="alert">The sections 'footer logo,' 'contacts' and 'social' below are optional. Some themes may not include them. </p>
+    </article>    
 
     <article id="footer_logo_option">
+      <p class="alert">The sections 'footer logo,' 'contacts' and 'social' below are optional. Some themes may not include them. </p>
       <h4>Footer Logo</h4>
       <div class="row"> 
       <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_footer_logo.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_footer_logo.jpg" alt=""><i class="icon-search"></i></a></figure>
@@ -1771,7 +1888,6 @@
       </ul>
       </div>
     </article>
-    
     <article id="social_option">
       <h4>Social</h4>
       <div class="row"> 
@@ -1785,7 +1901,43 @@
       </ul>
       </div>
     </article>
+    <article id="shop_option">
+      <h4>Shop Options</h4>
+      <div class="row"> 
+      <figure class="img-paraloid pull-left" style="width:40%;"><a href="img/wordpress/theme_options_shop.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/theme_options_shop.jpg" alt=""><i class="icon-search"></i></a></figure>
+      <div class="clearfix">
+      <ul>
+        <li><i class="icon-angle-right"></i> <strong>Product title length limit</strong> - max number of words, which will shown in product title on catalog page (leave empty for displaying full title)</li>
+        <li><i class="icon-angle-right"></i> <strong>Product description</strong> - Show/hide product description on catalog page</li>
+        <li><i class="icon-angle-right"></i> <strong>Show details button on catalog page</strong> - Show/hide product details button on catalog page</li>
+        <li><i class="icon-angle-right"></i> <strong>Display login links?</strong> - Display login links in the shop menu?</li>
+        <li><i class="icon-angle-right"></i> <strong>User profile link</strong> - user profile link title. If you use macro %username% it will be replaced with the current username. For example Site %username% .</li>
+        <li><i class="icon-angle-right"></i> <strong>Logoff link</strong> - Logoff link title.</li>
+        <li><i class="icon-angle-right"></i> <strong>Registration link</strong> - Registration link title</li>
+        <li><i class="icon-angle-right"></i> <strong>Authentication link (login)</strong> - Authentication (login) link title</li>
+        <li><i class="icon-angle-right"></i> <strong>Live Chat account ID</strong> - Your <a href="http://www.olark.com" rel="nofollow" target="_blank">Olark live chat</a> account ID</li>
+      </ul>
+      </div>
+      </div>
+      
+    </article>
+    <article id="olark_live_chat">
+      <h4>Olark Live Chat</h4>
+      <div class="box-notification">
+        <span>To set up a live chat like the one on the Live Demo, you'll need to register on the official Web site
+<a href="http://www.olark.com/?r=ad8fbsj2" rel="nofollow" target="_blank">Olark registration</span>
+      </div>
+      <div class="row"> 
+          <figure class="img-paraloid pull-left" style="width:300px;"><a href="img/wordpress/live-chat-1.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/live-chat-1.jpg" alt=""><i class="icon-search"></i></a></figure>
+          <div class="clearfix">Click the 'Get your code' link.</div>
+      </div>    
+      <div class="row"> 
+          <figure class="img-paraloid pull-left" style="width:300px;"><a href="img/wordpress/live-chat-2.jpg" class="pretty_image" data-gal="prettyPhoto"><img src="img/wordpress/live-chat-2.jpg" alt=""><i class="icon-search"></i></a></figure>
+          <div class="clearfix">Insert your generated site ID code into the field in Shop Options tab (Live Chat account ID Option).</div>
+      </div>  
+        
 
+    </article>
   </section>  
 <!-- Theme Options end -->
 
@@ -1798,19 +1950,29 @@
 </div>
    <!-- Footer
     ================================================== -->
+    
     <footer>
       <div class="container">        
-       <div class="span12">
-        <span id="copyright">Template Monster</span><br>
-        <span id="date"></span>
-       </div>
+       Jigoshop Theme Documentation<br>
+      &copy; <span id="copyright-year"></span> <span id="copyright">Template Monster</span>
       </div>
-    </footer>
+    </footer>   
 
   <div id="back-top">
     <a href="#"><i class="icon-double-angle-up"></i></a>
-  </div>    
+  </div>   
 
+
+<div class="modal_bg"></div>
+<div class="modal">
+  <div class="modal-header">
+    <span class="modal_remove pull-right"><i class="icon-remove"></i></span>
+    <h3>Choose language</h3>
+  </div>
+  <div class="modal-body">
+    <ul id="modal_languages" class="nav nav-list bs-docs-sidenav"></ul>
+  </div>
+</div>
 
 <!-- <script src="js/bootstrap-scrollspy.js"></script>  -->
 
@@ -1825,6 +1987,8 @@
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); 
   })();
 </script>
+
+  
     
 </body> 
 
