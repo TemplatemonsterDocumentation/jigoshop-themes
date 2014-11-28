@@ -213,11 +213,11 @@ header .brand {
   background: url(/help/wp-content/logo.png) no-repeat 0 0;
   width: 274px;
   height: 48px;
+  display: block;
   background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
   -o-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
-  display: block;
 }
 /*------ content ------- */
 #content {
